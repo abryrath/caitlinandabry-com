@@ -2,11 +2,9 @@
 {% if member.weddingPartyMemberPicture.first|length %}
     {%  set imgUrl = member.weddingPartyMemberPicture.first.filename %}
 {%endif%}
-<li>
-    <div class="wedding-party-member">
-        <img src="/uploads/{{imgUrl}}" alt="{{member.weddingPartyMemberName}}">
-        {{member.weddingPartyMemberName}}
-        {{member.weddingPartyMemberPosition}}
-        {{member.weddingPartyMemberRelation}}
-    </div>
+<li class="wedding-party-member">
+    <img class="wedding-party-headshot" src="/uploads/{{imgUrl}}" alt="{{member.weddingPartyMemberName}}">
+    <span class="name">{{member.weddingPartyMemberName}}</span>
+    <span class="position">{{member.weddingPartyMemberPosition}}</span>
+    <span class="desc">{{member.weddingPartyMemberRelation}}</span>
 </li>

@@ -10,19 +10,23 @@
       <a v-if="item.link" v-bind:href="item.url">
         {{item.display}}
       </a>
-      <div v-else href="#" v-on:click="handleClick(item.display)">
+      <a v-else href="#" v-on:click="handleClick(item.display)">
         {{item.display}}
-        <div
-          v-bind:id="item.submenuId"
-          v-bind:class="{
-                        submenu: true,
-                        'submenu-active': isOpen(item.display)
-                        }"
-          >
-          <ul class="submenu-list">
-            <li v-for="child in item.children">{{child.display}}</li>
-          </ul>
-        </div>
+      </a>
+      <div
+        v-bind:id="item.submenuId"
+        v-bind:class="{
+                      submenu: true,
+                      'submenu-active': isOpen(item.display)
+                      }"
+        >
+        <ul class="submenu-list">
+          <li v-for="child in item.children">
+            <a v-if="child.link" v-bind:href="child.url">
+              {{child.display}}
+            </a>
+          </li>
+        </ul>
       </div>
     </li>
   </ul>

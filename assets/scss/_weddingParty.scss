@@ -1,0 +1,34 @@
+.wedding-party-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $sans;
+
+  & > .name {
+    font-size: 2rem;
+  }
+
+  & > .position {}
+
+  & > .desc {
+    font-style: italic;
+  }
+}
+
+.wedding-party-headshot {
+  max-width: 20rem;
+} 
+
+.wedding-party-columns {
+  display: flex;
+  flex-direction: row;
+  
+  & > div {
+    width: 50%;
+    padding: 10px;
+  }
+  
+  & > div:first-child {
+    margin-right: 20px;
+  }
+}

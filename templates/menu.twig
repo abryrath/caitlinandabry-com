@@ -12,14 +12,4 @@
 
 <nav>
     <div id="menu-root"></div>
-    <ul class="nav">
-        {% for link in options %}
-            {%set activeClass = '' %}
-            {%if active == link.name%}
-                {%set activeClass = 'nav-item-active'%}
-            {%endif%}
-                
-            <li class="nav-item {{activeClass}}"><a href="{{link.url}}">{{link.name}}</a></li>
-        {% endfor %}
-    </ul>
 </nav>

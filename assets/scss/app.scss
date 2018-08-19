@@ -1,16 +1,33 @@
 @import 'colors';
 @import 'mixins';
 @import 'fonts';
-
 @import 'header';
+@import 'weddingParty';
+
 html {
   font-size: 62.5%;
 }
 
 body {
   font-size: 1.4rem;
-  font-family: $sans, sans-serif;
+  font-family: $sans;
+  background-color: rgba(10,10,10,.8);
+}
+
+.body::before {
   background-color: $page-bg;
+  background-image: url('/public/icons/kauai.jpg');// no-repeat;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+  z-index: -1;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .body {
@@ -34,4 +51,20 @@ ul {
 a {
   text-decoration: none;
   color: #eee;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3.5rem;
+  font-family: $serif;
+  font-weight: normal;
+}
+
+p {
+  font-family: $sans;
+  font-size: 1.8rem;
+}
+
+section[name="content"] {
+  margin: 20px 100px;
 }

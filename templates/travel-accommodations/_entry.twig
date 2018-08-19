@@ -1,0 +1,23 @@
+{%include 'header' with {title: 'Travel & Accommodations'}%}
+<section name="travel">
+    <h1>{{entry.travelTitle}}</h1>
+    <ul class="travel">
+        {%for travel in entry.travelTypes.all() %}
+            {%include 'travel' with {travel: travel}%}
+        {%endfor%}
+    </ul>
+</section>
+<section name="getting-around">
+    <h1>{{entry.gettingAroundTitle}}</h1>
+    {{entry.gettingAroundTitle}}
+</section>
+<section name="accommodations">
+    <h1>{{entry.accommodationsTitle}}</h1>
+    {{entry.accommodationsIntroCopy}}
+    <ul class="hotels">
+        {%for hotel in entry.hotelsList %}
+            {%include 'hotel' with {hotel: hotel}%}
+        {%endfor%}
+    </ul>
+</section>
+{%include 'footer'%}
