@@ -1,0 +1,19 @@
+{%set pageName = 'Wedding Party'%}
+{% include 'header.twig' with {active: pageName}%}
+<div class="content">
+    Wedding Party
+
+    <ul id="bridesmaids">
+        {% for bridesmaid in entry.bridesmaidList %}
+            {%include 'weddingPartyMember.twig' with {member: bridesmaid}%}
+        {%endfor%}
+    </ul>
+
+    <ul id="groomsmen">
+        {% for groomsman in entry.groomsmenList %}
+            {%include 'weddingPartyMember.twig' with {member: groomsman}%}
+        {%endfor%}
+    </ul>
+</div>
+{% include 'footer.twig' %}
+

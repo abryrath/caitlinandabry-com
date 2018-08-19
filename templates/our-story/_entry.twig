@@ -1,0 +1,13 @@
+{%set pageName = 'Our Story'%}
+{% include 'header.twig' with {active: pageName}%}
+
+<section name="how-we-met">
+    <h1>{{entry.howWeMetTitle}}</h1>
+    {{entry.howWeMetCopy}}
+</section>
+
+<section name="the-proposal">
+    <h1>{{entry.theProposalTitle}}</h1>
+    {{entry.theProposalCopy}}
+</section>
+{%include 'footer'%}
