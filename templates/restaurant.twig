@@ -1,7 +1,7 @@
 <div class="restaurant-container">
     <div class="title">{{restaurant.title}}</div>
     <ul>
-        {% for restaurant.cuisines as cuisine %}
+        {% for cuisine in restaurant.cuisines %}
             <li>{{cuisine}}</li>
         {% endfor %}
     </ul>
