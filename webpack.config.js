@@ -1,6 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
 var VueLoaderPlugin = require('vue-loader/lib/plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+var devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: [
@@ -11,7 +14,7 @@ module.exports = {
     publicPath: '/',
     filename: 'main.js'
   },
-  mode: 'development',
+    mode: devMode ? 'development' : 'production',
   devtool: 'source-map',
   module: {
     rules: [
@@ -30,7 +33,7 @@ module.exports = {
         include: path.join(__dirname, 'assets', 'scss'),
         exclude: /node_modules/,
         use: [
-          'style-loader',
+            devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'
         ]
@@ -42,7 +45,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin()
+      new VueLoaderPlugin(),
+      new MiniCssExtractPlugin({
+          filename: "[name].css",
+          chunkFilename: "[id].css"
+      })
   ],
   resolve: {
     alias: {
