@@ -3,7 +3,7 @@
     <h1>{{entry.travelTitle}}</h1>
     <ul class="travel">
         {%for travel in entry.travelTypes.all() %}
-            {%include 'travel' with {travel: travel}%}
+            {#{%include 'travel' with {travel: travel}%}#}
         {%endfor%}
     </ul>
 </section>

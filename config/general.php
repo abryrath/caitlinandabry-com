@@ -46,5 +46,6 @@ return [
     'production' => [
         // Base site URL
         'siteUrl' => null,
+'devMode' => getenv('DEV_MODE', false),
     ],
 ];
