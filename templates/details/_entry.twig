@@ -2,13 +2,16 @@
 <section name="the-big-day">
     <h1>{{entry.theBigDayTitle}}</h1>
     {{entry.theBigDayCopy}}
+    {{entry.theBigDayImage.one().filename}}
 </section>
 <section name="the-ceremony">
     <h1>{{entry.theCeremonyTitle}}</h1>
     {{entry.theCeremonyCopy}}
+    {{entry.theCeremonyImage.one().filename}}
 </section>
 <section name="the-reception">
     <h1>{{entry.theReceptionTitle}}</h1>
     {{entry.theReceptionCopy}}
+    {{entry.theReceptionImage.one().filename}}
 </section>
 {%include 'footer'%}
