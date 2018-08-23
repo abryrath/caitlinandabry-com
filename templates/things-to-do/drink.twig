@@ -1,5 +1,5 @@
-{%include 'header' with {title: 'Things To Do - Dine'}%}
-{% for entry.bars as bar %}
+{% include 'header' with {title: 'Things To Do - Dine'} %}
+{% for bar in entry.bars %}
     {% include 'bar' with {bar: bar} %}
 {% endfor %}
-{%include 'footer'%}
+{% include 'footer' %}
