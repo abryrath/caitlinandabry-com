@@ -1,0 +1,117 @@
+.hotel-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  & > * {
+    padding: 1rem;
+  }
+
+  .hotel-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .meta {
+    display: flex;
+    align-items: flex-start;
+    flex: 1 1 60%;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  .title {
+    //text-align: center;
+    font-size: 3rem;
+    font-family: $serif;
+    margin: 0 2rem 1rem 0;
+  }
+
+  .address {
+    font-size: 1.6rem;
+    font-family: $sans;
+  }
+
+  .address:before {
+    content: 'Address: ';
+    font-family: $sans;
+  }
+
+  .phone {
+    font-size: 1.6rem;
+    font-family: $sans;
+  }
+
+  .phone:before {
+    content: 'Phone: ';
+  }
+
+  .desc {
+    margin: 2rem 2rem 0 0;
+    font-family: $sans;
+    font-size: 1.6rem;
+  }
+
+  .addl-info {
+    margin: 0 2rem 0 0;
+    font-family: $sans;
+    font-size: 1.6rem;
+  }
+
+  .image {
+    flex: 1 1 40%;
+    img {
+      border-radius: 2rem;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  .desc {
+  }
+
+  .rates-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .rates-container > * {
+    margin: 1rem;
+  }
+
+}
+
+
+.rates {
+  border: 1px solid $color-5;
+  border-collapse: collapse;
+
+  th,td {
+    border: 1px solid $color-5;
+    padding: .5rem;
+  }
+
+  th {
+    font-size: 1.6rem;
+    font-family: $sans;
+    background-color: $color-4;
+  }
+}
+
+.hotels-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.hotels-list > li {
+  border-bottom: 2px solid $color-2;
+}
+
+.hotels-list > li:last-child {
+  border-bottom: 0;
+}
