@@ -2,13 +2,22 @@
 <section name="the-big-day">
     <h1>{{entry.theBigDayTitle}}</h1>
     {{entry.theBigDayCopy}}
+    {% if entry.theBigDayImage.one() %}
+        {{entry.theBigDayImage.one().filename}}
+    {% endif %}
 </section>
 <section name="the-ceremony">
     <h1>{{entry.theCeremonyTitle}}</h1>
     {{entry.theCeremonyCopy}}
+    {% if entry.theCeremonyImage.one() %}
+        {{entry.theCeremonyImage.one().filename}}
+    {% endif %}
 </section>
 <section name="the-reception">
     <h1>{{entry.theReceptionTitle}}</h1>
     {{entry.theReceptionCopy}}
+    {% if entry.theReceptionImage.one() %}
+        {{entry.theReceptionImage.one().filename}}
+    {% endif %}
 </section>
 {%include 'footer'%}
