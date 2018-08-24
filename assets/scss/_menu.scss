@@ -3,7 +3,7 @@
 .nav {
   list-style-type: none;
   padding: 0;
-  fontt-family: $sans;
+  font-family: $sans;
 
   @include mobile {
     display: none;
@@ -25,12 +25,25 @@
   }
 
   li {
+    text-transform: uppercase;
     @include desktop {
       max-width: 180px;
       display: inline-block;
       padding: 0 20px 0 20px;
-      text-transform: uppercase;
     }
+    @include mobile {
+      padding: 1rem;
+      border-bottom: 1px solid $sep-color;
+    }
+  }
+  li:last-child {
+    border-bottom: 0;
+  }
+}
+
+.nav.mobile-active {
+  @include mobile {
+    display: flex;
   }
 }
 
@@ -71,6 +84,9 @@
 
 .submenu-active {
   display: block;
+  background-color: $submenu-bg;
+  padding: 1rem;
+  
 }
 
 .submenu-list {
@@ -78,4 +94,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.mobile-menu-button {
+  @include mobile {
+    display: block;
+  }
+  @include desktop {
+    display: none;
+  }
 }

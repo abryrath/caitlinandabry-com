@@ -25,6 +25,7 @@ const store = new Vuex.Store({
         {display: 'photos', link: true, url: '#'},
       ],
       open: null,
+      mobile: false,
     },
   },
   mutations: {
@@ -36,6 +37,9 @@ const store = new Vuex.Store({
       console.log('setOpen: ', payload);
       
       state.menu.open = payload.item;
+    },
+    setMobileMenu(state, payload) {
+      state.menu.mobile = payload.open;
     },
   }
 });

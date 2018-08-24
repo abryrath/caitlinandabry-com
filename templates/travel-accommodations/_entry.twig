@@ -24,7 +24,7 @@
 <section name="accommodations">
     <h1>{{entry.accommodationsTitle}}</h1>
     {{entry.accommodationsIntroCopy}}
-    <ul class="hotels">
+    <ul class="hotels-list">
         {%for hotel in entry.hotelsList %}
             {%include 'hotel' with {hotel: hotel}%}
         {%endfor%}

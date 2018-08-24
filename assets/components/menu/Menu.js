@@ -19,6 +19,15 @@ const Menu = Vue.component('nav-menu', {
         });
       }
     },
+    mobileToggle() {
+      console.log('mobileToggle');
+      this.$store.commit('setMobileMenu', {
+        open: !this.$store.state.menu.mobile
+      });
+    },
+    isMobileOpen() {
+      return this.$store.state.menu.mobile;
+    }
   },
   computed: {
     listItems() {
