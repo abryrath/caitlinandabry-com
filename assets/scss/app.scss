@@ -4,6 +4,7 @@
 @import 'header';
 @import 'weddingParty';
 @import 'hotel';
+@import 'restaurant';
 
 html {
   font-size: 62.5%;
@@ -19,7 +20,7 @@ body {
   background-color: $page-bg;
   background-image: url('/public/icons/kauai.jpg');// no-repeat;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 200%;
   background-attachment: fixed;
   z-index: -1;
   opacity: 0.4;

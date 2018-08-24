@@ -1,10 +1,12 @@
-<div class="restaurant-container">
+<li class="restaurant-container">
     <div class="title">{{restaurant.title}}</div>
-    <ul>
-        {% for cuisine in restaurant.cuisine %}
-            <li>{{cuisine}}</li>
-        {% endfor %}
-    </ul>
+    <div class="cuisine-container">
+        <ul class="cuisine-list">
+            {% for cuisine in restaurant.cuisine %}
+                <li>{{cuisine}}</li>
+            {% endfor %}
+        </ul>
+    </div>
     {% if restaurant.restaurantEpicentre %}
         <div class="address">Located in the Epicentre</div>
     {% else %}
@@ -12,4 +14,4 @@
         <div class="prox">{{restaurant.restaurantProximity}}</div>
     {% endif %}
     <div class="description">{{restaurant.restaurantDescription}}</div>
-</div>
+</li>

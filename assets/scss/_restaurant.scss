@@ -1,0 +1,36 @@
+.restaurant-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-container:last-child {
+  border-bottom: 0px solid #000;
+}
+
+.restaurant-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #000;
+  
+  & > * {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  & > .title {
+    font-size: 2rem;
+  }
+
+  & > .cuisine-container {
+  }
+
+  & > .address {
+  }
+
+}
+
+.cuisine-list {
+  list-style: none;
+}

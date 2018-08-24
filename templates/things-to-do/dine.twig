@@ -1,5 +1,7 @@
 {%include 'header' with {title: 'Things To Do - Dine'}%}
-{% for restaurant in entry.restaurants %}
-    {% include 'restaurant' with {restaurant: restaurant} %}
-{% endfor %}
+<ul class="restaurant-list">
+    {% for restaurant in entry.restaurants %}
+        {% include 'restaurant' with {restaurant: restaurant} %}
+    {% endfor %}
+</ul>
 {%include 'footer'%}
