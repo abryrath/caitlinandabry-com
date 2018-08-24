@@ -5,14 +5,14 @@
 }
 
 .restaurant-container:last-child {
-  border-bottom: 0px solid #000;
+  border-bottom: 0;
 }
 
 .restaurant-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid $sep-color;
   
   & > * {
     margin: 1rem;
@@ -21,12 +21,19 @@
   
   & > .title {
     font-size: 2rem;
+    flex: 1 1 30%;
   }
 
   & > .cuisine-container {
+    flex: 1 1 15%;
   }
 
   & > .address {
+    flex: 1 1 20%;
+  }
+
+  & > .description {
+    flex: 1 1 35%;
   }
 
 }

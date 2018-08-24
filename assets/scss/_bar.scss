@@ -1,0 +1,17 @@
+.bar-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.bar-container:last-child {
+  border-bottom: 0;
+}
+
+.bar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid $sep-color;
+
+}

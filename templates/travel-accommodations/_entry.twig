@@ -1,7 +1,17 @@
 {%include 'header' with {title: 'Travel & Accommodations'}%}
+{#
+<section name="index">
+    Sections
+    <ul>
+        <li><a href="#travel">Travel</a></li>
+        <li><a href="#getting-around">Getting Around</a></li>
+        <li><a href="#accommodations">Accommodations</a></li>
+    </ul>
+</section>
+#}
 <section name="travel">
     <h1>{{entry.travelTitle}}</h1>
-    <ul class="travel">
+    <ul class="travel-list">
         {%for travel in entry.travelTypes.all() %}
             {%include 'travel' with {travel: travel} %}
         {%endfor%}
@@ -9,7 +19,7 @@
 </section>
 <section name="getting-around">
     <h1>{{entry.gettingAroundTitle}}</h1>
-    {{entry.gettingAroundTitle}}
+    {{entry.gettingAroundCopy}}
 </section>
 <section name="accommodations">
     <h1>{{entry.accommodationsTitle}}</h1>

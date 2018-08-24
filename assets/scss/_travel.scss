@@ -1,0 +1,53 @@
+section[name="index"] {
+  margin: 0 auto;
+  font-size: 2rem;
+  display: flex;
+  
+  & > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+  }
+
+  li {
+    flex: 1 1 25%;
+  }
+}
+
+.travel-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.travel-container:last-child {
+  border-bottom: 0;
+}
+
+.travel-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid $sep-color;
+
+  & > * {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  & > .title {
+    font-size: 2rem;
+    flex: 1 1 30%;
+  }
+
+  & > .description {
+    font-size: 1.4rem;
+    flex: 1 1 30%;
+  }
+
+  & > .address {
+    flex: 1 1 30%;
+  }
+}
+
