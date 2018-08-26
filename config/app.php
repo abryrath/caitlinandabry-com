@@ -19,7 +19,8 @@
 
 return [
     'modules' => [
-        'my-module' => \modules\Module::class,
+        'abryrath' => \abryrath\databasehelper\DatabaseHelperModule::class,
     ],
+    
     //'bootstrap' => ['my-module'],
 ];

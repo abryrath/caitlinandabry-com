@@ -6,7 +6,7 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\": "modules/"
+      "abryrath\\databasehelper\\": "modules/databasehelper"
     }
   },
   "config": {
