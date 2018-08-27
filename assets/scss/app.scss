@@ -20,7 +20,7 @@ body {
 
 .body::before {
   background-color: $page-bg;
-  background-image: url('/public/icons/kauai.jpg');// no-repeat;
+  //background-image: url('/public/icons/kauai.jpg');// no-repeat;
   background-repeat: no-repeat;
   background-size: 200%;
   background-attachment: fixed;

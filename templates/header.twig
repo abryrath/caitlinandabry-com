@@ -20,3 +20,9 @@
             </section>
             
             <section id="content" name="content">
+                {% if hero is defined %}
+                    <div class="hero-container">
+                        <img src="/uploads/{{hero.first.filename}}" />
+                    </div>
+                {% endif %}
+
