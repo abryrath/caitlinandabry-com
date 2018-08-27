@@ -7,7 +7,7 @@ return [
             'username' => 'abry',
             'port' => '22',
             'phpPath' => '/usr/bin/php',
-            'root' => '/home/abry/caitlinandabry-com/',
+            'root' => '/home/abry/caitlinandabry-com',
             'backupDirectory' => '/tmp',
         ],
     ],

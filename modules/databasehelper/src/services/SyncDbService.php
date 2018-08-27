@@ -96,7 +96,7 @@ class SyncDbService extends Component
         $logger->log('Beginning remote dump');
         $remoteSqlDumpStart = microtime(true);
         $execRemoteSsh = 'ssh ' . $remote['username'] . '@' . $remote['host'] . ' -p ' . $remote['port'];
-        $execRemoteDump = $execRemoteSsh . ' ' . $remote['phpPath'] . ' ' . $remote['root'] . '/craft database-helper/dumpmysql';
+        $execRemoteDump = $execRemoteSsh . ' ' . $remote['phpPath'] . ' ' . $remote['root'] . '/craft abryrath/database-helper-console/dumpmysql';
         $result = $this->exec($execRemoteDump);
         $remoteSqlDumpEnd = microtime(true);
         $logger->log('Remote dump completed in ' . number_format(($remoteSqlDumpEnd - $remoteSqlDumpStart), 2) . ' seconds');
@@ -113,17 +113,17 @@ class SyncDbService extends Component
         sleep(1);
 
         // delete remote file
-        $this->exec($execRemoteSsh . ' rm ' . $remoteZipPath);
+        $this->exec($execRemoteSsh . ' rm ' . $remoteTarballPath);
         $logger->log('Remote File Deleted');
-        $this->exec('unzip ' . $this->sqlDumpPath(static::SQL_DUMP_FILE_TARBALL) . ' -d ' . $this->sqlDumpPath());
+        print_r($this->exec('cd ' . $this->sqlDumpPath() .' && tar -xzvf ' . static::SQL_DUMP_FILE_TARBALL));
         $this->exec('mysql -u ' . env('DB_USER') . ' -h ' . env('DB_SERVER') . ' -P ' . env('DB_PORT') . " --password='" . env('DB_PASSWORD') . "' " . env('DB_DATABASE') . ' < ' . $this->sqlDumpPath(static::SQL_DUMP_FILE_NAME));
         $logger->log('Local Dump Complete');
 
         // delete sql file
-        $this->exec('rm ' . $this->sqlDumpPath(static::SQL_DUMP_FILE_NAME));
+        //$this->exec('rm ' . $this->sqlDumpPath(static::SQL_DUMP_FILE_NAME));
 
         // delete zip file
-        $this->exec('rm ' . $this->sqlDumpPath(static::SQL_DUMP_FILE_TARBALL));
+        //$this->exec('rm ' . $this->sqlDumpPath(static::SQL_DUMP_FILE_TARBALL));
         
     }
     protected function checkBackupPath()
