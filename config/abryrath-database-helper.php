@@ -8,7 +8,7 @@ return [
             'port' => '22',
             'phpPath' => '/usr/bin/php',
             'root' => '/home/abry/caitlinandabry-com',
-            'backupDirectory' => '/tmp',
+            'backupDirectory' => '/tmp/',
         ],
     ],
 ];
