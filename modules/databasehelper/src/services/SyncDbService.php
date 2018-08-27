@@ -76,7 +76,7 @@ class SyncDbService extends Component
         $execSqlDump = env('MYSQL_DUMP_PATH') . ' -h ' . env('DB_SERVER') . ' -P ' . env('DB_PORT') . ' -u ' . env('DB_USER') . " --password='" . env('DB_PASSWORD') . "' " . env('DB_DATABASE') . ' > ' . $this->sqlDumpPath(static::SQL_DUMP_FILE_NAME) . ' ;';
         $this->exec($execSqlDump);
 
-        $execTar = 'tar -czvf ' . $this->sqlDumpPath(static::SQL_DUMP_FILE_TARBALL) . ' ' . $this->sqlDumpPath(static::SQL_DUMP_FILE_NAME) . ' ;';
+        $execTar = 'cd ' . $this->sqlDumpPath() . ' && tar -czvf ' . static::SQL_DUMP_FILE_TARBALL . ' ' . static::SQL_DUMP_FILE_NAME . ' ;';
         $this->exec($execTar);
 
         $execRm = 'rm ' . $this->sqlDumpPath(static::SQL_DUMP_FILE_NAME);
