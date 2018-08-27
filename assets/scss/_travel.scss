@@ -21,33 +21,79 @@ section[name="index"] {
 
 }
 
+.travel-container {
+  border-bottom: 1px solid $sep-color;
+}
+
+.travel-container > .mobile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.travel-container > .desktop {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
 .travel-container:last-child {
   border-bottom: 0;
 }
 
+
 .travel-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-bottom: 1px solid $sep-color;
-
-  & > * {
-    margin: 1rem;
-    padding: 1rem;
+  @include mobile {
+    & > .desktop {
+      display: none;
+    }
   }
-
-  & > .title {
-    font-size: 2rem;
-    flex: 1 1 30%;
+  
+  @include desktop {
+    & > .mobile {
+      display: none;
+    }
   }
+  
+}
 
-  & > .description {
-    font-size: 1.4rem;
-    flex: 1 1 30%;
+.travel {
+  //margin: 1rem;
+  //padding: 1rem;
+}
+
+.travel.title {
+  font-size: 2rem;
+  flex: 1 1 30%;
+  margin-top: 3rem;
+}
+
+.travel.description {
+  font-size: 1.4rem;
+  @include mobile {
+    flex: 1 1 50%;
   }
-
-  & > .address {
-    flex: 1 1 30%;
+  &::before {
+    font-size: 1rem;
+    content: "DESCRIPTION";
+    position: relative;
+    top: 1rem;
   }
 }
 
+.travel.address {
+  flex: 1 1 30%;
+  &::before {
+    font-size: 1rem;
+    content: "ADDRESS";
+    top: 1rem;
+    position: relative;
+  }
+}
+
+.mobile > .col {
+  display: flex;
+  flex-direction: column;
+  
+  margin: 1rem;
+}
