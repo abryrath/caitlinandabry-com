@@ -1,4 +1,4 @@
-{%include 'header' with {title: 'Things To Do - Dine'}%}
+{%include 'header' with {title: 'Things To Do - Dine', hero: entry.pageHeroImage}%}
 <ul class="restaurant-list">
     {% for restaurant in entry.restaurants %}
         {% include 'restaurant' with {restaurant: restaurant} %}

@@ -1,4 +1,4 @@
-{% include 'header' with {title: 'Things To Do - Dine'} %}
+{% include 'header' with {title: 'Things To Do - Dine', hero: entry.pageHeroImage} %}
 {% for bar in entry.bars %}
     {% include 'bar' with {bar: bar} %}
 {% endfor %}
