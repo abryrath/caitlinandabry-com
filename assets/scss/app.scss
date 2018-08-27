@@ -70,5 +70,11 @@ p {
 }
 
 section[name="content"] {
-  margin: 20px 100px;
+  @include desktop {
+    margin: 20px 100px;
+  }
+
+  @include mobile {
+    padding-bottom: 50vh;
+  }
 }
