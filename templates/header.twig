@@ -20,7 +20,7 @@
             </section>
             
             <section id="content" name="content">
-                {% if hero is defined and hero %}
+                {% if hero is defined and hero is not null and hero is not empty %}
                     <div class="hero-container">
                         <img src="/uploads/{{hero.first.filename}}" />
                     </div>
