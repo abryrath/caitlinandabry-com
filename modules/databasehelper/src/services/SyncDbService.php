@@ -113,7 +113,7 @@ class SyncDbService extends Component
         sleep(1);
 
         // delete remote file
-        $this->exec($execRemoteSsh . ' rm ' . $remoteTarballPath);
+        //$this->exec($execRemoteSsh . ' rm ' . $remoteTarballPath);
         $logger->log('Remote File Deleted');
         print_r($this->exec('cd ' . $this->sqlDumpPath() .' && tar -xzvf ' . static::SQL_DUMP_FILE_TARBALL));
         $this->exec('mysql -u ' . env('DB_USER') . ' -h ' . env('DB_SERVER') . ' -P ' . env('DB_PORT') . " --password='" . env('DB_PASSWORD') . "' " . env('DB_DATABASE') . ' < ' . $this->sqlDumpPath(static::SQL_DUMP_FILE_NAME));
