@@ -1,0 +1,14 @@
+<?php
+
+return [
+    'remotes' => [
+        'production' => [
+            'host' => '',
+            'username' => '',
+            'port' => '22',
+            'phpPath' => '/usr/bin/php',
+            'root' => '',
+            'backupDirectory' => '',
+        ],
+    ],
+];
