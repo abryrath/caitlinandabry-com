@@ -1,6 +1,6 @@
 section[name="index"] {
   margin: 0 auto;
-  font-size: 2rem;
+  font-size: $font-md;
   display: flex;
   
   & > ul {
@@ -63,18 +63,18 @@ section[name="index"] {
 }
 
 .travel.title {
-  font-size: 2rem;
+  font-size: $font-md;
   flex: 1 1 30%;
   margin-top: 3rem;
 }
 
 .travel.description {
-  font-size: 1.4rem;
+  font-size: $font-sm;
   @include mobile {
     flex: 1 1 50%;
   }
   &::before {
-    font-size: 1rem;
+    font-size: $font-sm;
     content: "DESCRIPTION";
     position: relative;
     top: 1rem;
@@ -84,7 +84,7 @@ section[name="index"] {
 .travel.address {
   flex: 1 1 30%;
   &::before {
-    font-size: 1rem;
+    font-size: $font-sm;
     content: "ADDRESS";
     top: 1rem;
     position: relative;

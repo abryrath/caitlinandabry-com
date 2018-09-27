@@ -1,4 +1,5 @@
 @import 'menu';
+@import 'fonts';
 
 .header-title {
   flex: 1 1 100%;
@@ -6,7 +7,7 @@
   font-family: $serif;
 
   @include mobile {
-    font-size: 5rem;
+    font-size: $font-xl;
     margin: 0 auto 20px auto;
   }
 

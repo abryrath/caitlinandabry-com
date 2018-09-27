@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-size: 1.8rem;
+  font-size: $font-md;
   font-family: $sans;
   background-color: $page-bg;//rgba(10,10,10,.8);
 }
@@ -59,14 +59,18 @@ a {
 
 h1 {
   text-align: center;
-  font-size: 3.5rem;
+  font-size: $font-lg;
   font-family: $serif;
   font-weight: normal;
 }
 
 p {
   font-family: $sans;
-  font-size: 1.8rem;
+  font-size: $font-md;
+}
+
+section > img {
+  max-width: 100%;
 }
 
 section[name="content"] {

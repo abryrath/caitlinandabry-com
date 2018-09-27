@@ -9,18 +9,14 @@ Sections
 </ul>
 </section>
 #}
-<section name="travel">
-    <h1>{{entry.travelTitle}}</h1>
-    <ul class="travel-list">
-        {%for travel in entry.travelTypes.all() %}
-            {%include 'travel' with {travel: travel} %}
-        {%endfor%}
-    </ul>
-</section>
-<section name="getting-around">
-    <h1>{{entry.gettingAroundTitle}}</h1>
-    {{entry.gettingAroundCopy}}
-</section>
+{# <section name="travel">
+     <h1>{{entry.travelTitle}}</h1>
+     <ul class="travel-list">
+     {%for travel in entry.travelTypes.all() %}
+     {%include 'travel' with {travel: travel} %}
+     {%endfor%}
+     </ul>
+     </section> #}
 <section name="accommodations">
     <h1>{{entry.accommodationsTitle}}</h1>
     {{entry.accommodationsIntroCopy}}
@@ -30,4 +26,10 @@ Sections
         {%endfor%}
     </ul>
 </section>
+
+<section name="getting-around">
+    <h1>{{entry.gettingAroundTitle}}</h1>
+    {{entry.gettingAroundCopy}}
+</section>
+
 {%include 'footer'%}

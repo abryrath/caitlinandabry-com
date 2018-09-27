@@ -1,3 +1,5 @@
+@import 'fonts';
+
 .restaurant-list {
   list-style: none;
   display: flex;
@@ -20,7 +22,7 @@
   }
   
   & > .title {
-    font-size: 2rem;
+    font-size: $font-md;
     flex: 1 1 30%;
   }
 

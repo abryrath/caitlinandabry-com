@@ -1,3 +1,5 @@
+@import 'fonts';
+
 .hotel-container {
   display: flex;
   flex-direction: column;
@@ -23,13 +25,13 @@
   
   .title {
     //text-align: center;
-    font-size: 3rem;
+    font-size: $font-lg;
     font-family: $serif;
     margin: 0 2rem 1rem 0;
   }
 
   .address {
-    font-size: 1.6rem;
+    font-size: $font-md;
     font-family: $sans;
   }
 
@@ -39,7 +41,7 @@
   }
 
   .phone {
-    font-size: 1.6rem;
+    font-size: $font-md;
     font-family: $sans;
   }
 
@@ -50,13 +52,13 @@
   .desc {
     margin: 2rem 2rem 0 0;
     font-family: $sans;
-    font-size: 1.6rem;
+    font-size: $font-md;
   }
 
   .addl-info {
     margin: 0 2rem 0 0;
     font-family: $sans;
-    font-size: 1.6rem;
+    font-size: $font-md;
   }
 
   .image {
@@ -96,7 +98,7 @@
   }
 
   th {
-    font-size: 1.6rem;
+    font-size: $font-md;
     font-family: $sans;
     background-color: $color-4;
   }

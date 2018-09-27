@@ -1,5 +1,5 @@
+@import 'fonts';
 
-/** Menu **/
 .nav {
   list-style-type: none;
   padding: 0;
@@ -16,7 +16,7 @@
     flex-direction: row;
     border-top: 2px solid #eee;
     margin: 10px 0 50px 0;
-    font-size: 1.6rem;
+    font-size: $font-md;
     vertical-align: middle;
     justify-content: center;
     align-items: start;

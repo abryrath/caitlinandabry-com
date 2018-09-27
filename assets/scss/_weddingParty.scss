@@ -1,3 +1,5 @@
+@import 'fonts';
+
 .wedding-party-member {
   display: flex;
   flex-direction: column;
@@ -5,7 +7,7 @@
   font-family: $sans;
 
   & > .name {
-    font-size: 2rem;
+    font-size: $font-md;
   }
 
   & > .position {}
