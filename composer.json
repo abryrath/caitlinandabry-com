@@ -3,7 +3,8 @@
     "craftcms/cms": "^3.0.0",
     "vlucas/phpdotenv": "^2.4.0",
     "craftcms/redactor": "2.1.5",
-    "craftcms/aws-s3": "^1.0"
+    "craftcms/aws-s3": "^1.0",
+    "bolden/htmlcache": "1.0.4"
   },
   "autoload": {
     "psr-4": {
