@@ -21,10 +21,10 @@
             </section>
             
             <section id="content" name="content">
-                {% set hero = entry.pageHeroImage.one %}
-                {% if hero %}
+                {% set hero = entry.pageHeroImage %}
+                {% if hero | length %}
                     <div class="hero-container">
-                        <img src="{{hero.getUrl}}" />
+                        <img src="{{hero.first.getUrl}}" />
                     </div>
                 {% endif %}
 
