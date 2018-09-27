@@ -15,15 +15,15 @@ html {
 body {
   font-size: 1.8rem;
   font-family: $sans;
-  background-color: rgba(10,10,10,.8);
+  background-color: $page-bg;//rgba(10,10,10,.8);
 }
 
 .body::before {
-  background-color: $page-bg;
+  //background-color: $page-bg;
   //background-image: url('/public/icons/kauai.jpg');// no-repeat;
-  background-repeat: no-repeat;
-  background-size: 200%;
-  background-attachment: fixed;
+  //background-repeat: no-repeat;
+ // background-size: 200%;
+  //background-attachment: fixed;
   z-index: -1;
   opacity: 0.4;
   width: 100%;

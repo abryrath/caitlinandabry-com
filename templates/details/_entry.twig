@@ -3,21 +3,21 @@
     <h1>{{entry.theBigDayTitle}}</h1>
     {{entry.theBigDayCopy}}
     {% if entry.theBigDayImage.one() %}
-        {{entry.theBigDayImage.one().filename}}
+        <img src="{{entry.theBigDayImage.one().filename}}"/>
     {% endif %}
 </section>
 <section name="the-ceremony">
     <h1>{{entry.theCeremonyTitle}}</h1>
     {{entry.theCeremonyCopy}}
     {% if entry.theCeremonyImage.one() %}
-        {{entry.theCeremonyImage.one().filename}}
+        <img src="{{entry.theCeremonyImage.one().url}}"/>
     {% endif %}
 </section>
 <section name="the-reception">
     <h1>{{entry.theReceptionTitle}}</h1>
     {{entry.theReceptionCopy}}
     {% if entry.theReceptionImage.one() %}
-        {{entry.theReceptionImage.one().filename}}
+        <img src="{{entry.theReceptionImage.one().url}}"/>
     {% endif %}
 </section>
 {%include 'footer'%}
