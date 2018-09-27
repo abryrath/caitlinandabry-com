@@ -6,7 +6,7 @@
 .nav {
   list-style-type: none;
   padding: 0;
-  fontt-family: "Fira Sans Condensed", sans-serif; }
+  font-family: "Fira Sans Condensed", sans-serif; }
   @media only screen and (max-width: 769px) {
     .nav {
       display: none;
@@ -18,18 +18,29 @@
       flex-direction: row;
       border-top: 2px solid #eee;
       margin: 10px 0 50px 0;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       vertical-align: middle;
       justify-content: center;
       align-items: start;
       position: relative;
       top: -1rem; } }
-  @media only screen and (min-width: 770px) {
-    .nav li {
-      max-width: 180px;
-      display: inline-block;
-      padding: 0 20px 0 20px;
-      text-transform: uppercase; } }
+  .nav li {
+    text-transform: uppercase; }
+    @media only screen and (min-width: 770px) {
+      .nav li {
+        max-width: 180px;
+        display: inline-block;
+        padding: 0 20px 0 20px; } }
+    @media only screen and (max-width: 769px) {
+      .nav li {
+        padding: 1rem;
+        border-bottom: 1px solid #E1E8ED; } }
+  .nav li:last-child {
+    border-bottom: 0; }
+
+@media only screen and (max-width: 769px) {
+  .nav.mobile-active {
+    display: flex; } }
 
 .nav-item {
   background-color: #FFFFFF; }
@@ -60,13 +71,23 @@
   position: absolute; }
 
 .submenu-active {
-  display: block; }
+  display: block;
+  background-color: #CCD6DD;
+  padding: 1rem; }
 
 .submenu-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center; }
+
+@media only screen and (max-width: 769px) {
+  .mobile-menu-button {
+    display: block; } }
+
+@media only screen and (min-width: 770px) {
+  .mobile-menu-button {
+    display: none; } }
 
 .header-title {
   flex: 1 1 100%;
@@ -97,6 +118,11 @@
 @media only screen and (min-width: 770px) {
   nav {
     flex-direction: row; } }
+
+.hero-container {
+  margin: 0 auto; }
+  .hero-container > img {
+    width: 100%; }
 
 .wedding-party-member {
   display: flex;
@@ -190,25 +216,132 @@
   padding-left: 0; }
 
 .hotels-list > li {
-  border-bottom: 2px solid #292F33; }
+  border-bottom: 2px solid #E1E8ED; }
 
 .hotels-list > li:last-child {
   border-bottom: 0; }
+
+.restaurant-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column; }
+
+.restaurant-container:last-child {
+  border-bottom: 0; }
+
+.restaurant-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #E1E8ED; }
+  .restaurant-container > * {
+    margin: 1rem;
+    padding: 1rem; }
+  .restaurant-container > .title {
+    font-size: 2rem;
+    flex: 1 1 30%; }
+  .restaurant-container > .cuisine-container {
+    flex: 1 1 15%; }
+  .restaurant-container > .address {
+    flex: 1 1 20%; }
+  .restaurant-container > .description {
+    flex: 1 1 35%; }
+
+.cuisine-list {
+  list-style: none; }
+
+section[name="index"] {
+  margin: 0 auto;
+  font-size: 2rem;
+  display: flex; }
+  section[name="index"] > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row; }
+  section[name="index"] li {
+    flex: 1 1 25%; }
+
+.travel-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column; }
+
+.travel-container {
+  border-bottom: 1px solid #E1E8ED; }
+
+.travel-container > .mobile {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.travel-container > .desktop {
+  display: flex;
+  flex-direction: row;
+  align-items: start; }
+
+.travel-container:last-child {
+  border-bottom: 0; }
+
+@media only screen and (max-width: 769px) {
+  .travel-container > .desktop {
+    display: none; } }
+
+@media only screen and (min-width: 770px) {
+  .travel-container > .mobile {
+    display: none; } }
+
+.travel.title {
+  font-size: 2rem;
+  flex: 1 1 30%;
+  margin-top: 3rem; }
+
+.travel.description {
+  font-size: 1.4rem; }
+  @media only screen and (max-width: 769px) {
+    .travel.description {
+      flex: 1 1 50%; } }
+  .travel.description::before {
+    font-size: 1rem;
+    content: "DESCRIPTION";
+    position: relative;
+    top: 1rem; }
+
+.travel.address {
+  flex: 1 1 30%; }
+  .travel.address::before {
+    font-size: 1rem;
+    content: "ADDRESS";
+    top: 1rem;
+    position: relative; }
+
+.mobile > .col {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem; }
+
+.bar-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column; }
+
+.bar-container:last-child {
+  border-bottom: 0; }
+
+.bar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #E1E8ED; }
 
 html {
   font-size: 62.5%; }
 
 body {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-family: "Fira Sans Condensed", sans-serif;
-  background-color: rgba(10, 10, 10, 0.8); }
+  background-color: #CCD6DD; }
 
 .body::before {
-  background-color: #CCD6DD;
-  background-image: url("/public/icons/kauai.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: fixed;
   z-index: -1;
   opacity: 0.4;
   width: 100%;
@@ -220,7 +353,7 @@ body {
 
 .body {
   background-color: #ffffff;
-  max-width: 800px;
+  max-width: 1000px;
   min-height: 50vh; }
   @media only screen and (max-width: 769px) {
     .body {
@@ -236,7 +369,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: #eee; }
+  color: #55ACEE; }
 
 h1 {
   text-align: center;
@@ -248,8 +381,13 @@ p {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 1.8rem; }
 
-section[name="content"] {
-  margin: 20px 100px; }
+@media only screen and (min-width: 770px) {
+  section[name="content"] {
+    margin: 20px 100px; } }
+
+@media only screen and (max-width: 769px) {
+  section[name="content"] {
+    padding-bottom: 50vh; } }
 
 
 /*# sourceMappingURL=main.css.map*/

@@ -27,7 +27,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
       "build": "./node_modules/.bin/webpack --mode development",
-      "build:prod": "./node_modules/.bin/webpack --mode production",
+      "build:prod": "NODE_ENV=production ./node_modules/.bin/webpack --mode production",
     "start": "webpack-serve"
   },
   "author": "Abry Rath",
