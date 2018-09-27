@@ -22,7 +22,7 @@ const store = new Vuex.Store({
         },
         {display: 'wedding party', link: true, url: '/wedding-party'},
         {display: 'registry', link: true, url: '#'},
-        {display: 'photos', link: true, url: '#'},
+        {display: 'photos', link: true, url: '/photos'},
       ],
       open: null,
       mobile: false,
