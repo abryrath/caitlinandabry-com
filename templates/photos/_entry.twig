@@ -1,8 +1,12 @@
 {% set photos = craft.assets().volume('s3Photos').kind('image').all() %}
-<ul>
-    {% for photo in photos %}
-        <li>
-            <img src="{{ photo.getUrl('thumb') }}">
-        </li>
-    {% endfor %}
-</ul>
+{% extends '_layouts/default %}
+{% block content %}
+    <ul>
+        {% for photo in photos %}
+            <li>
+                <pre>{{ photo.getUrl() }}</pre>
+                {#<img src="{{ photo.getUrl('thumb') }}"> #}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

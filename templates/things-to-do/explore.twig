@@ -1,5 +1,6 @@
-{%include 'header' with {title: 'Things To Do - Dine', hero: entry.pageHeroImage}%}
-{% for attraction in entry.attractions %}
-    {% include 'attraction' with {attraction: attraction} %}
-{% endfor %}
-{%include 'footer'%}
+{% extends '_layouts/default' %}
+{% block content %}
+    {% for attraction in entry.attractions %}
+        {% include '_partials/attraction' with {attraction: attraction} %}
+    {% endfor %}
+{% endblock %}

@@ -1,35 +1,18 @@
-{%include 'header' with {title: 'Travel & Accommodations', hero: entry.pageHeroImage}%}
-{#
-<section name="index">
-Sections
-<ul>
-<li><a href="#travel">Travel</a></li>
-<li><a href="#getting-around">Getting Around</a></li>
-<li><a href="#accommodations">Accommodations</a></li>
-</ul>
-</section>
-#}
-{# <section name="travel">
-     <h1>{{entry.travelTitle}}</h1>
-     <ul class="travel-list">
-     {%for travel in entry.travelTypes.all() %}
-     {%include 'travel' with {travel: travel} %}
-     {%endfor%}
-     </ul>
-     </section> #}
-<section name="accommodations">
-    <h1>{{entry.accommodationsTitle}}</h1>
-    {{entry.accommodationsIntroCopy}}
-    <ul class="hotels-list">
-        {%for hotel in entry.hotelsList %}
-            {%include 'hotel' with {hotel: hotel}%}
-        {%endfor%}
-    </ul>
-</section>
+{% extends '_layouts/default %}
+{% block content %}
+    <section name="accommodations">
+        <h1>{{entry.accommodationsTitle}}</h1>
+        {{entry.accommodationsIntroCopy}}
+        <ul class="hotels-list">
+            {%for hotel in entry.hotelsList %}
+                {%include '_partials/hotel' with {hotel: hotel}%}
+            {%endfor%}
+        </ul>
+    </section>
 
-<section name="getting-around">
-    <h1>{{entry.gettingAroundTitle}}</h1>
-    {{entry.gettingAroundCopy}}
-</section>
+    <section name="getting-around">
+        <h1>{{entry.gettingAroundTitle}}</h1>
+        {{entry.gettingAroundCopy}}
+    </section>
 
-{%include 'footer'%}
+{% endblock %}

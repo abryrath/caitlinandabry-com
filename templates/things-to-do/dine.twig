@@ -1,7 +1,9 @@
-{%include 'header' with {title: 'Things To Do - Dine', hero: entry.pageHeroImage}%}
-<ul class="restaurant-list">
-    {% for restaurant in entry.restaurants %}
-        {% include 'restaurant' with {restaurant: restaurant} %}
-    {% endfor %}
-</ul>
-{%include 'footer'%}
+{% extends '_layouts/default' %}
+
+{% block content %}
+    <ul class="restaurant-list">
+        {% for restaurant in entry.restaurants %}
+            {% include '_partials/restaurant' with {restaurant: restaurant} %}
+        {% endfor %}
+    </ul>
+{% endblock %}

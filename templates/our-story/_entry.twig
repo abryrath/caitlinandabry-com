@@ -1,13 +1,12 @@
-{%set pageName = 'Our Story'%}
-{% include 'header.twig' with {title: pageName, hero: entry.pageHeroImage}%}
+{% extends '_layouts/default' %}
+{% block content %}
+    <section name="how-we-met">
+        <h1>{{entry.howWeMetTitle}}</h1>
+        {{entry.howWeMetCopy}}
+    </section>
 
-<section name="how-we-met">
-    <h1>{{entry.howWeMetTitle}}</h1>
-    {{entry.howWeMetCopy}}
-</section>
-
-<section name="the-proposal">
-    <h1>{{entry.theProposalTitle}}</h1>
-    {{entry.theProposalCopy}}
-</section>
-{%include 'footer'%}
+    <section name="the-proposal">
+        <h1>{{entry.theProposalTitle}}</h1>
+        {{entry.theProposalCopy}}
+    </section>
+{% endblock %}

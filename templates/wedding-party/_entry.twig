@@ -1,24 +1,24 @@
-{%set pageName = 'Wedding Party'%}
-{% include 'header.twig' with {title: pageName, hero: entry.pageHeroImage}%}
-<div class="content">
-    <h1>Wedding Party</h1>
+{% extends '_layouts/default' %}
 
-    <div class="wedding-party-columns">
-        <div>
-            <ul id="bridesmaids">
-                {% for bridesmaid in entry.bridesmaidList %}
-                    {%include 'weddingPartyMember.twig' with {member: bridesmaid}%}
-                {%endfor%}
-            </ul>
-        </div>
-        <div>
-            <ul id="groomsmen">
-                {% for groomsman in entry.groomsmenList %}
-                    {%include 'weddingPartyMember.twig' with {member: groomsman}%}
-                {%endfor%}
-            </ul>
+{% block content %}
+    <div class="content">
+        <h1>Wedding Party</h1>
+
+        <div class="wedding-party-columns">
+            <div>
+                <ul id="bridesmaids">
+                    {% for bridesmaid in entry.bridesmaidList %}
+                        {%include '_partials/weddingPartyMember.twig' with {member: bridesmaid}%}
+                    {%endfor%}
+                </ul>
+            </div>
+            <div>
+                <ul id="groomsmen">
+                    {% for groomsman in entry.groomsmenList %}
+                        {%include '_partials/weddingPartyMember.twig' with {member: groomsman}%}
+                    {%endfor%}
+                </ul>
+            </div>
         </div>
     </div>
-</div>
-{% include 'footer.twig' %}
-
+{% endblock %}
