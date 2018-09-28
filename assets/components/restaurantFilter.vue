@@ -1,9 +1,8 @@
 <template>
     <div class="restaurant-filter">
         <div class="controls">
-            <label v-for="(label, cuisine) in $store.getters.allCuisines">
+            <label v-for="(label, cuisine) in $store.getters.allCuisines" @click="updateCuisineFilter(cuisine)" :data-label="cuisine">
                 {{ label }}
-                <input type="checkbox"  @change="updateCuisineFilter(cuisine)" />
             </label>
         </div>
         <ul>

@@ -58,12 +58,39 @@ const store = new Vuex.Store({
             state.cuisines.all = payload.cuisines;
         },
         setSelectedCuisine(state, payload) {
-            state.cuisines.selected = payload.cuisine;
+            if (state.cuisines.selected.includes(payload.cuisine)) {
+                let cuisines = state.cuisines.selected;
+                const index = cuisines.indexOf(payload.cuisine);
+                cuisines.splice(index, 1);
+                state.cuisines.selected = cuisines;
+            } else {
+                state.cuisines.selected.push(payload.cuisine);
+            }
         },
     },
     getters: {
         filteredRestaurants(state) {
-            return state.restaurants.filtered;
+            const restaurants = state.restaurants.all;
+            let filtered = [];
+            // Cuisine
+            if (state.cuisines.selected.length === 0) {
+                return restaurants;
+            }
+
+            const selected = state.cuisines.selected;
+            
+            filtered = restaurants.filter(t => {
+                for (var key in t.cuisines) {
+                    if (parseInt(key)) {
+                        console.log(parseInt(key), t.cuisines[key].value);
+                        if (selected.includes(t.cuisines[key].value)) {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            });
+            return filtered;
         },
         allRestaurants(state) {
             return state.restaurants.all;
