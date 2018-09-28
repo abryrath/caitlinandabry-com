@@ -1,9 +1,14 @@
 {% extends '_layouts/default' %}
 
 {% block content %}
-    <ul class="restaurant-list">
-        {% for restaurant in entry.restaurants %}
-            {% include '_partials/restaurant' with {restaurant: restaurant} %}
-        {% endfor %}
-    </ul>
+    {% set restaurants = craft.app.get('restaurants').all() %}
+    {% set cuisines = craft.app.get('restaurants').cuisines() %}
+    <div data-vue is="restaurant-filter" :restaurants="{{ restaurants | json_encode }}" :cuisines="{{ cuisines | json_encode }}">
+        <restaurant-filter :restaurants="{{ restaurants | json_encode  }}"></restaurant-filter>
+    </div>
+    {# <ul class="restaurant-list">
+         {% for restaurant in entry.restaurants %}
+         {% include '_partials/restaurant' with {restaurant: restaurant} %}
+         {% endfor %}
+         </ul> #}
 {% endblock %}

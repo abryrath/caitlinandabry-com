@@ -1,0 +1,19 @@
+.controls {
+
+}
+
+label {
+  border: 1px solid black;
+  padding: 2px;
+  margin: 2px;
+}
+
+label:has(> input[type="checkbox"]:checked) {
+  border: 2px solid red;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  top: -999px;
+  left: -999px;
+}

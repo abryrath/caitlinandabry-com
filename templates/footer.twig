@@ -1,0 +1,10 @@
+</section>
+<section id="footer" name="footer">
+</section>
+{%if getenv("APP_ENV") == "development"%}
+    <script src="http://localhost:8080/main.js"></script>
+{%else%}
+    <script src="/main.js"></script>
+{%endif%}
+</body>
+</html>

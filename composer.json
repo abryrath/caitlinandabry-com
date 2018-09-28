@@ -9,7 +9,8 @@
   },
   "autoload": {
     "psr-4": {
-      "abryrath\\databasehelper\\": "modules/databasehelper"
+        "abryrath\\databasehelper\\": "modules/databasehelper",
+        "abryrath\\wedding\\": "modules/app/src"
     }
   },
   "config": {

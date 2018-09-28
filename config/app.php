@@ -20,7 +20,10 @@
 return [
     'modules' => [
         'abryrath' => \abryrath\databasehelper\DatabaseHelperModule::class,
+        'wedding' => \abryrath\wedding\App::class,
     ],
-    
-    //'bootstrap' => ['my-module'],
+    'components' => [
+        'restaurants' => \abryrath\wedding\services\RestaurantService::class,
+    ],
+    'bootstrap' => ['wedding'],
 ];
