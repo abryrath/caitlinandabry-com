@@ -1,18 +1,22 @@
-{% extends '_layouts/default %}
+{% extends "_layouts/default" %}
 {% block content %}
     <section name="accommodations">
-        <h1>{{entry.accommodationsTitle}}</h1>
-        {{entry.accommodationsIntroCopy}}
+        <h1>{{ entry.accommodationsTitle }}</h1>
+        {{ entry.accommodationsIntroCopy }}
         <ul class="hotels-list">
-            {%for hotel in entry.hotelsList %}
-                {%include '_partials/hotel' with {hotel: hotel}%}
-            {%endfor%}
+            {% for hotel in entry.hotelsList %}
+                {% include "_partials/hotel" with {
+                    hotel: hotel
+                } %}
+            {% endfor %}
         </ul>
     </section>
 
     <section name="getting-around">
         <h1>{{entry.gettingAroundTitle}}</h1>
-        {{entry.gettingAroundCopy}}
+        <div class="getting-around">
+            {{entry.gettingAroundCopy}}
+        </div>
     </section>
 
 {% endblock %}

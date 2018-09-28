@@ -1,11 +1,5 @@
-{% set photos = craft.assets().volume('s3Photos').kind('image').all() %}
 {% extends '_layouts/default' %}
 {% block content %}
-    <ul>
-        {% for photo in photos %}
-            <li>
-                <img src="{{ photo.url }}">
-            </li>
-        {% endfor %}
-    </ul>
+    {% set photos = craft.app.get('photos').all() %}
+    <div data-vue is="photo-lightbox" :photo-data="{{ photos | json_encode }}" class="photos-container"></div>
 {% endblock %}

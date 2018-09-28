@@ -6,9 +6,4 @@
     <div data-vue is="restaurant-filter" :restaurants="{{ restaurants | json_encode }}" :cuisines="{{ cuisines | json_encode }}">
         <restaurant-filter :restaurants="{{ restaurants | json_encode  }}"></restaurant-filter>
     </div>
-    {# <ul class="restaurant-list">
-         {% for restaurant in entry.restaurants %}
-         {% include '_partials/restaurant' with {restaurant: restaurant} %}
-         {% endfor %}
-         </ul> #}
 {% endblock %}

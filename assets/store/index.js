@@ -35,7 +35,15 @@ const store = new Vuex.Store({
         cuisines: {
             all: [],
             selected: []
-        }
+        },
+        bars: {
+            all: [],
+            filtered: []
+        },
+        attractions: {
+            all: [],
+            filtered: []
+        },
     },
     mutations: {
         setActive(state, payload) {
@@ -66,6 +74,14 @@ const store = new Vuex.Store({
             } else {
                 state.cuisines.selected.push(payload.cuisine);
             }
+        },
+        setBars(state, payload) {
+            state.bars.all = payload.bars;
+            state.bars.filtered = payload.bars;
+        },
+        setAttractions(state, payload) {
+            state.attractions.all = payload.attractions;
+            state.attractions.filtered = payload.attractions;
         },
     },
     getters: {
@@ -98,6 +114,12 @@ const store = new Vuex.Store({
         allCuisines(state) {
             return state.cuisines.all;
         },
+        filteredBars(state) {
+            return state.bars.all;
+        },
+        filteredAttractions(state) {
+            return state.attractions.all;
+        }
     }
 });
 

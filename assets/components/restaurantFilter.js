@@ -2,11 +2,6 @@ import Vue from 'vue';
 
 export default Vue.component('restaurant-filter', {
     props: ['restaurants', 'cuisines'],
-    data() {
-        return {
-            i: 1
-        };
-    },
     mounted() {
         console.log('restaurant-filter mounted');
         if (this.restaurants) {

@@ -24,6 +24,9 @@ return [
     ],
     'components' => [
         'restaurants' => \abryrath\wedding\services\RestaurantService::class,
+        'bars' => \abryrath\wedding\services\BarService::class,
+        'attractions' => \abryrath\wedding\services\AttractionService::class,
+        'photos' => \abryrath\wedding\services\PhotoService::class,
     ],
     'bootstrap' => ['wedding'],
 ];

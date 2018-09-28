@@ -1,6 +1,5 @@
 {% extends '_layouts/default' %}
 {% block content %}
-    {% for attraction in entry.attractions %}
-        {% include '_partials/attraction' with {attraction: attraction} %}
-    {% endfor %}
+    {% set attractions = craft.app.get('attractions').all() %}
+    <div data-vue is="attraction-filter" :attractions="{{ attractions | json_encode }}"></div>
 {% endblock %}
