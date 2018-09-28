@@ -1,6 +1,10 @@
 @import 'menu';
 @import 'fonts';
 
+section[name="header"] {
+  margin-bottom: 1rem;
+}
+
 .header-title {
   flex: 1 1 100%;
   text-align: center;
@@ -30,7 +34,7 @@
   }
 
   @include desktop {
-    margin: 0 auto 40px auto;
+    margin: 0 auto 1rem auto;
   }
 }
 
@@ -42,10 +46,3 @@ nav {
   }
 }
 
-.hero-container {
-  margin: 0 auto;
-
-  & > img {
-    width: 100%;
-  }
-}

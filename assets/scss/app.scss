@@ -2,6 +2,7 @@
 @import 'mixins';
 @import 'fonts';
 @import 'header';
+@import 'hero';
 @import 'weddingParty';
 @import 'hotel';
 @import 'restaurant';
@@ -9,7 +10,7 @@
 @import 'bar';
 @import 'controls';
 @import 'lists';
-
+@import 'photoLightbox';
 html {
   font-size: 62.5%;
 }
@@ -69,6 +70,10 @@ h1 {
 p {
   font-family: $sans;
   font-size: $font-md;
+}
+
+section {
+  margin-bottom: 10rem;
 }
 
 section > img {

@@ -34,7 +34,7 @@ const store = new Vuex.Store({
         },
         cuisines: {
             all: [],
-            selected: []
+            selected: ['all']
         },
         bars: {
             all: [],
@@ -47,12 +47,9 @@ const store = new Vuex.Store({
     },
     mutations: {
         setActive(state, payload) {
-            console.log('setActive: ', payload);
             state.menu.active = payload.item;
         },
         setOpen(state, payload) {
-            console.log('setOpen: ', payload);
-            
             state.menu.open = payload.item;
         },
         setMobileMenu(state, payload) {
@@ -63,7 +60,9 @@ const store = new Vuex.Store({
             state.restaurants.filtered = payload.restaurants;
         },
         setCuisines(state, payload) {
-            state.cuisines.all = payload.cuisines;
+            const cuisines = payload.cuisines;
+            cuisines.all = 'All';
+            state.cuisines.all = cuisines;
         },
         setSelectedCuisine(state, payload) {
             if (state.cuisines.selected.includes(payload.cuisine)) {
@@ -72,7 +71,16 @@ const store = new Vuex.Store({
                 cuisines.splice(index, 1);
                 state.cuisines.selected = cuisines;
             } else {
-                state.cuisines.selected.push(payload.cuisine);
+                let cuisines = state.cuisines.selected;
+                if (cuisines.includes('all')) {
+                    cuisines.splice(cuisines.indexOf('all'), 1);
+                }
+                cuisines.push(payload.cuisine);
+                state.cuisines.selected = cuisines;
+            }
+
+            if (state.cuisines.selected.length === 0) {
+                state.cuisines.selected = ['all'];
             }
         },
         setBars(state, payload) {
@@ -89,16 +97,15 @@ const store = new Vuex.Store({
             const restaurants = state.restaurants.all;
             let filtered = [];
             // Cuisine
-            if (state.cuisines.selected.length === 0) {
+            if (state.cuisines.selected.length === 0 || state.cuisines.selected.includes('all')) {
                 return restaurants;
             }
 
             const selected = state.cuisines.selected;
-            
+
             filtered = restaurants.filter(t => {
                 for (var key in t.cuisines) {
                     if (parseInt(key)) {
-                        console.log(parseInt(key), t.cuisines[key].value);
                         if (selected.includes(t.cuisines[key].value)) {
                             return true;
                         }
@@ -112,7 +119,25 @@ const store = new Vuex.Store({
             return state.restaurants.all;
         },
         allCuisines(state) {
-            return state.cuisines.all;
+            let cuisines = [];
+            for (var k in state.cuisines.all) {
+                cuisines.push({
+                    key: k,
+                    value: state.cuisines.all[k]
+                });
+            }
+            cuisines.sort((a,b) => {
+                if (a.key > b.key) {
+                    return 1;
+                } else if (a.key < b.key) {
+                    return -1;
+                }
+                return 0;
+            });
+            return cuisines;
+        },
+        selectedCuisines(state) {
+            return state.cuisines.selected;
         },
         filteredBars(state) {
             return state.bars.all;

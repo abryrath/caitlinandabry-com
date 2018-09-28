@@ -4,6 +4,5 @@
     {% set restaurants = craft.app.get('restaurants').all() %}
     {% set cuisines = craft.app.get('restaurants').cuisines() %}
     <div data-vue is="restaurant-filter" :restaurants="{{ restaurants | json_encode }}" :cuisines="{{ cuisines | json_encode }}">
-        <restaurant-filter :restaurants="{{ restaurants | json_encode  }}"></restaurant-filter>
     </div>
 {% endblock %}

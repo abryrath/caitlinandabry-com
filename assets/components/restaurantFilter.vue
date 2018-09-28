@@ -1,9 +1,11 @@
 <template>
     <div class="restaurant-filter">
         <div class="controls">
-            <label v-for="(label, cuisine) in $store.getters.allCuisines" @click="updateCuisineFilter(cuisine)" :data-label="cuisine">
-                {{ label }}
-            </label>
+            <div id="cuisines-label">
+                <label v-for="cuisine in $store.getters.allCuisines" @click="updateCuisineFilter(cuisine.key)" :data-label="cuisine.key">
+                    {{ cuisine.value }}
+                </label>
+            </div>
         </div>
         <ul>
             <li v-for="restaurant in $store.getters.filteredRestaurants" class="restaurant-container">

@@ -2,6 +2,12 @@ import Vue from 'vue';
 
 export default Vue.component('restaurant-filter', {
     props: ['restaurants', 'cuisines'],
+    computed: {
+        all() {
+            const cuisines = this.$store.getters.selectedCuisines;
+            return cuisines.length && cuisines.includes('all');
+        },
+    },
     mounted() {
         console.log('restaurant-filter mounted');
         if (this.restaurants) {
@@ -15,15 +21,19 @@ export default Vue.component('restaurant-filter', {
     },
     methods: {
         updateCuisineFilter(cuisine) {
-            const label = document.querySelector('[data-label="' + cuisine + '"]');
-            if (label.classList.contains('active')) {
-                label.classList.remove('active');
-            } else {
-                label.classList.add('active');
-            }
-
             this.$store.commit('setSelectedCuisine', {
                 cuisine
+            });
+            
+            this.$store.getters.selectedCuisines.forEach(selected => {
+                document.querySelectorAll('[data-label]').forEach(label => {
+                    const value = label.dataset.label;
+                    if (selected.includes(label.dataset.label)) {
+                        label.classList.add('active');
+                    } else {
+                        label.classList.remove('active');
+                    }
+                });
             });
         },
     }

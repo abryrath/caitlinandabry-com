@@ -10,7 +10,9 @@ export default Vue.component('photo-lightbox', {
         return {
             photos: this.photoData,
             options: {
-                closeText: 'X'
+                closeText: 'X',
+                widthRatio: .5,
+                heightRatio: .5
             },
         };
     },
