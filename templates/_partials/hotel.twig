@@ -7,7 +7,7 @@
             <div class="desc" >{{hotel.hotelDescription}}</div>
             {% if hotel.hotelImage.first %}
                 <div class="image">
-                    <img src="/uploads/{{hotel.hotelImage.first.filename}}"/>
+                    <img src="{{hotel.hotelImage.first.url}}"/>
                 </div>
             {% endif %}
         </div>

@@ -6,6 +6,11 @@
                     {{ cuisine.value }}
                 </label>
             </div>
+            <div id="cost-label">
+                <label v-for="cost in $store.getters.restaurantCosts" @click="updateRestaurantCostFilter(cost.key)" :data-cost="cost.value">
+                    {{ cost.value }}
+                </label>
+            </div>
         </div>
         <ul>
             <li v-for="restaurant in $store.getters.filteredRestaurants" class="restaurant-container">

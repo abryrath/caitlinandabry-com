@@ -1,22 +1,31 @@
+@import 'colors';
+
 .controls {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: none;
   
   label {
-    padding: 2px;
-    margin: 2px;
+    padding: 2px 5px;
+    line-height: 3rem;
+    margin: 1rem 1rem;
     text-transform: uppercase;
+    border-radius: 16px;
+    background-color: $color-5;
   }
   .active {
-    background-color: rgba(.5, .5, .5, .1);
+    background-color: $color-4;
   }
 }
 
 #cuisines-label:before {
   text-transform: uppercase;
-  content: 'By Cuisine';
+  content: 'Cuisine';
   display: flex;
   flex-direction: row;
 }
   
+#cost-label:before {
+  text-transform: uppercase;
+  content: 'Cost';
+}

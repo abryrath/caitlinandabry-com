@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 export default Vue.component('restaurant-filter', {
-    props: ['restaurants', 'cuisines'],
+    props: ['restaurants', 'cuisines', 'costs'],
     computed: {
         all() {
             const cuisines = this.$store.getters.selectedCuisines;
@@ -16,6 +16,9 @@ export default Vue.component('restaurant-filter', {
             });
             this.$store.commit('setCuisines', {
                 cuisines: this.cuisines
+            });
+            this.$store.commit('setRestaurantCosts', {
+                costs: this.costs
             });
         }
     },
@@ -36,5 +39,10 @@ export default Vue.component('restaurant-filter', {
                 });
             });
         },
+        updateRestaurantCostFilter(cost) {
+            this.$store.commit('setSelectedRestaurantCost', {
+                cost
+            });
+        }
     }
 });

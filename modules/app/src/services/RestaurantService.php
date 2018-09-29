@@ -40,4 +40,15 @@ class RestaurantService
 
         return $cuisines;
     }
+
+    public function costs()
+    {
+        return [
+            1 => '$',
+            2 => '$$',
+            3 => '$$$',
+            4 => '$$$$',
+            5 => '$$$$$',
+        ];
+    }
 }
