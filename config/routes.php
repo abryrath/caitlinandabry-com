@@ -19,5 +19,8 @@
  */
 
 return [
-
+    [
+        'pattern' => 'restaurants',
+        'route' => 'wedding/restaurant/all'
+    ]
 ];

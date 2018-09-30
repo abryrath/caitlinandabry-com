@@ -211,6 +211,10 @@
     text-table "^0.2.0"
     webpack-log "^1.1.2"
 
+"@websanova/vue-modal@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@websanova/vue-modal/-/vue-modal-0.1.0.tgz#d51aa81dc4db9d25cbd2b3078f285a7855ebdcfd"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -4554,6 +4558,10 @@ vm-browserify@0.0.4:
 vue-hot-reload-api@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.0.tgz#97976142405d13d8efae154749e88c4e358cf926"
+
+vue-js-modal@^1.3.26:
+  version "1.3.26"
+  resolved "https://registry.yarnpkg.com/vue-js-modal/-/vue-js-modal-1.3.26.tgz#00c8b9d4765e034c6b6535a2d6373117519f343f"
 
 vue-loader@^15.3.0:
   version "15.4.0"

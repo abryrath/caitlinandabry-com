@@ -1,36 +1,40 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import SortUtil from '../util/sort.js';
+
 Vue.use(Vuex);
+const menu = [
+    {display: 'home', link: true, url: '/'},
+    {display: 'our story', link: true, url: '/our-story'},
+    {display: 'details', link: true, url: '/details'},
+    {display: 'travel & accommodations', link: true, url: '/travel-accommodations'},
+    {display: 'things to do', link: false,
+     children: [
+         {display: 'dine', link: true, url: '/things-to-do/dine'},
+         {display: 'drink', link: true, url: '/things-to-do/drink'},
+         {display: 'explore', link: true, url: '/things-to-do/explore'},
+     ],
+     submenuId: '#things-to-do-nav-submenu'
+    },
+    {display: 'wedding party', link: true, url: '/wedding-party'},
+    {display: 'registry', link: true, url: '#'},
+    {display: 'photos', link: true, url: '/photos'},
+];
 
 const store = new Vuex.Store({
     state: {
         menu: {
             active: 'home',
-            items: [
-                {display: 'home', link: true, url: '/'},
-                {display: 'our story', link: true, url: '/our-story'},
-                {display: 'details', link: true, url: '/details'},
-                {display: 'travel & accommodations', link: true, url: '/travel-accommodations'},
-                {display: 'things to do', link: false,
-                 children: [
-                     {display: 'dine', link: true, url: '/things-to-do/dine'},
-                     {display: 'drink', link: true, url: '/things-to-do/drink'},
-                     {display: 'explore', link: true, url: '/things-to-do/explore'},
-                 ],
-                 submenuId: '#things-to-do-nav-submenu'
-                },
-                {display: 'wedding party', link: true, url: '/wedding-party'},
-                {display: 'registry', link: true, url: '#'},
-                {display: 'photos', link: true, url: '/photos'},
-            ],
+            items: menu,
             open: null,
             mobile: false,
         },
         restaurants: {
             all: [],
-            filtered: [],
             filters: [],
+            sort: 'alpha',
+            sortDir: 'asc',
         },
         cuisines: {
             all: [],
@@ -61,9 +65,9 @@ const store = new Vuex.Store({
         },
         setRestaurants(state, payload) {
             state.restaurants.all = payload.restaurants;
-            state.restaurants.filtered = payload.restaurants;
         },
         setRestaurantCosts(state, payload) {
+            console.log('setRestaurantCosts');
             state.restaurantCosts.all = payload.costs;
         },
         setCuisines(state, payload) {
@@ -72,6 +76,10 @@ const store = new Vuex.Store({
             state.cuisines.all = cuisines;
         },
         setSelectedCuisine(state, payload) {
+            if (payload.cuisine == 'all') {
+                state.cuisines.selected = ['all'];
+                return;
+            }
             if (state.cuisines.selected.includes(payload.cuisine)) {
                 let cuisines = state.cuisines.selected;
                 const index = cuisines.indexOf(payload.cuisine);
@@ -91,7 +99,20 @@ const store = new Vuex.Store({
             }
         },
         setSelectedRestaurantCost(state, payload) {
+            console.log('setSelectedRestaurantCost');
+            if (state.restaurantCosts.selected == payload.cost) {
+                state.restaurantCosts.selected = '';
+                return;
+            }
             state.restaurantCosts.selected = payload.cost;
+        },
+        setSelectedRestaurantSort(state, payload) {
+            if (state.restaurants.sort === payload.sort) {
+                state.restaurants.sortDir = state.restaurants.sortDir === 'asc' ? 'desc' : 'asc';
+            } else {
+                state.restaurants.sortDir = 'asc';
+            } 
+            state.restaurants.sort = payload.sort;
         },
         setBars(state, payload) {
             state.bars.all = payload.bars;
@@ -103,41 +124,6 @@ const store = new Vuex.Store({
         },
     },
     getters: {
-        filteredRestaurants(state) {
-            const restaurants = state.restaurants.all;
-            let filtered = [];
-
-            // Cuisine
-            if (state.cuisines.selected.length === 0 || state.cuisines.selected.includes('all')) {
-                return restaurants;
-            }
-
-            const selected = state.cuisines.selected;
-                
-            filtered = restaurants.filter(t => {
-                for (var key in t.cuisines) {
-                    if (parseInt(key)) {
-                        if (selected.includes(t.cuisines[key].value)) {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            });
-            
-            //Cost
-            const cost = state.restaurantCosts.selected;
-            console.log(cost);
-            if (cost.length > 0) {
-                filtered = restaurants.filter(t => {
-                    for (var key in t.cost) {
-                        console.log(key);
-                    }
-                });
-            }
-            
-            return filtered;
-        },
         allRestaurants(state) {
             return state.restaurants.all;
         },
@@ -157,6 +143,7 @@ const store = new Vuex.Store({
                 }
                 return 0;
             });
+            
             return cuisines;
         },
         restaurantCosts(state) {

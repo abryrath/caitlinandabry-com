@@ -1,29 +1,31 @@
 <template>
     <div class="restaurant-filter">
-        <div class="controls">
+        <div class="controls" id="filters">
             <div id="cuisines-label">
                 <label v-for="cuisine in $store.getters.allCuisines" @click="updateCuisineFilter(cuisine.key)" :data-label="cuisine.key">
                     {{ cuisine.value }}
-                </label>
+                    </label>
             </div>
             <div id="cost-label">
                 <label v-for="cost in $store.getters.restaurantCosts" @click="updateRestaurantCostFilter(cost.key)" :data-cost="cost.value">
                     {{ cost.value }}
                 </label>
             </div>
+            <div class="controls" id="sort">
+                <div>
+                    <label @click="updateRestaurantSort('alpha')" data-sort="alpha">Alphabetic</label>
+                </div>
+                <div>
+                    <label @click="updateRestaurantSort('cost')" data-sort="cost">Cost</label>
+                </div>
+            </div>
         </div>
-        <ul>
-            <li v-for="restaurant in $store.getters.filteredRestaurants" class="restaurant-container">
-                <div class="title">
-                    {{ restaurant.title }}
-                </div>
-                <div class="cuisine-container">
-                    <ul class="cuisine-list">
-                        <li v-for="cuisine in restaurant.cuisine">{{ cuisine.label }}</li>
-                    </ul>
-                </div>
-                <div v-html="restaurant.desc"></div>
-            </li>
+        <ul class="restaurant-list">
+            <restaurant
+                v-for="restaurant in filteredRestaurants"
+                :restaurant="restaurant"
+                :key="restaurant.id"
+            ></restaurant>
         </ul>
     </div>
 </template>

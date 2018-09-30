@@ -14,7 +14,7 @@
     background-color: $color-5;
   }
   .active {
-    background-color: $color-4;
+    background-color: $color-1;
   }
 }
 
@@ -28,4 +28,9 @@
 #cost-label:before {
   text-transform: uppercase;
   content: 'Cost';
+}
+
+#sort:before {
+  content: 'Sort';
+  text-transform: uppercase;
 }
