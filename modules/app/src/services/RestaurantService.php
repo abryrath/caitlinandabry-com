@@ -70,17 +70,15 @@ class RestaurantService
                 usort(
                     $filtered,
                     function ($a, $b) use ($sortDir) {
-                        $val = $a < $b
+                        $val = $a['title'] < $b['title']
                              ? -1
-                             : ($a > $b ? 1 : 0);
+                             : ($a['title'] > $b['title'] ? 1 : 0);
                         return $sortDir == 'asc' ? $val : $val*-1; 
                     }
                 );
             }
         }
         return $filtered;
-
-        
     }
 
     public function cuisines()

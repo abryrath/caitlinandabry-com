@@ -12,7 +12,7 @@
             </div>
             <div v-html="restaurant.desc"></div>
             <div v-html="restaurant.address"></div>
-            <restaurant-modal :id="restaurant.id"></restaurant-modal> 
+            <restaurant-modal :id="restaurant.id" :restaurant="restaurant"></restaurant-modal> 
     </li>
 </template>
 <script src="./restaurant.js"></script>

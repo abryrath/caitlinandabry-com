@@ -22,5 +22,13 @@ return [
     [
         'pattern' => 'restaurants',
         'route' => 'wedding/restaurant/all'
+    ],
+    [
+        'pattern' => 'bars',
+        'route' => 'wedding/bar/all'
+    ],
+    [
+        'pattern' => 'attractions',
+        'route' => 'wedding/attraction/all',
     ]
 ];

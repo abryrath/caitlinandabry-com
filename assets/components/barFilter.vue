@@ -1,9 +1,12 @@
 <template>
     <div class="bar-filter">
-        <div class="controls">
+        <div class="controls" id="sort">
+            <div>
+                <label @click="updateBarSort('alpha')" data-sort="alpha">Alphabetic</label>
+            </div>
         </div>
         <ul>
-            <li v-for="bar in $store.getters.filteredBars" class="bar-container">
+            <li v-for="bar in filteredBars" class="bar-container">
                 <div class="title">
                     {{ bar.title }}
                 </div>

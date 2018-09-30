@@ -7,7 +7,7 @@
                     </label>
             </div>
             <div id="cost-label">
-                <label v-for="cost in $store.getters.restaurantCosts" @click="updateRestaurantCostFilter(cost.key)" :data-cost="cost.value">
+                <label v-for="cost in $store.getters.restaurantCosts" @click="updateRestaurantCostFilter(cost.key)" :data-cost="cost.key">
                     {{ cost.value }}
                 </label>
             </div>

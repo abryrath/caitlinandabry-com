@@ -7,7 +7,7 @@ use yii\web\Controller;
 
 class RestaurantController extends Controller
 {
-    public function actionAll($cuisines = '', $cost = '',  $sort = '', $sortDir = '')
+    public function actionAll($cuisines = '', $cost = '',  $sort = 'alpha', $sortDir = 'asc')
     {
         $opts = [];
         if ($cuisines) {

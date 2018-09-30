@@ -95,15 +95,10 @@ export default Vue.component('restaurant-filter', {
             
             this.$store.getters.selectedCuisines.forEach(selected => {
                 document.querySelectorAll("[data-label='"+selected+"']").forEach(label => {
-                    
-                    //const value = label.dataset.label;
-                    //if (selected.includes(label.dataset.label)) {
-                        label.classList.add('active');
-                    //} else {
-                        //label.classList.remove('active');
-                    //}
+                    label.classList.add('active');
                 });
             });
+
             this.getRestaurants();
         },
         updateRestaurantCostFilter(cost) {
@@ -111,14 +106,30 @@ export default Vue.component('restaurant-filter', {
             this.$store.commit('setSelectedRestaurantCost', {
                 cost
             });
+
+            document.querySelectorAll("[data-cost='"+cost+"']").forEach(label => {
+                label.classList.remove('active');
+            });
+
+            
+            const active = document.querySelector("[data-cost='"+this.$store.state.restaurantCosts.selected+"']");
+            if (active) {
+                active.classList.add('active');
+            }
+            
             this.getRestaurants();
         },
         updateRestaurantSort(sort) {
-            console.log('updateRestaurantSort');
-            this.$store.commit('setSelectedRestaurantSort', {
+            this.$store.commit('setSort', {
                 sort
             });
 
+            document.querySelectorAll('[data-sort]').forEach(label => {
+                label.classList.remove('active');
+            });
+
+            document.querySelector('[data-sort=\''+sort+'\']').classList.add('active');
+            
             this.getRestaurants();
         },
         getRestaurants() {
@@ -130,8 +141,8 @@ export default Vue.component('restaurant-filter', {
                 cuisines += c;
             });
             const cost = this.$store.state.restaurantCosts.selected;
-            const sort = this.$store.state.restaurants.sort;
-            const sortDir = this.$store.state.restaurants.sortDir;
+            const sort = this.$store.state.sort.sort;
+            const sortDir = this.$store.state.sort.dir;
             fetch('/restaurants?cuisines='+cuisines+'&cost='+cost+'&sort='+sort+'&sortDir='+sortDir)
                 .then(t => t.json())
                 .then(j => {

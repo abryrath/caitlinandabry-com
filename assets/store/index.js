@@ -30,11 +30,13 @@ const store = new Vuex.Store({
             open: null,
             mobile: false,
         },
+        sort: {
+            sort: 'alpha',
+            dir: 'asc',
+        },
         restaurants: {
             all: [],
             filters: [],
-            sort: 'alpha',
-            sortDir: 'asc',
         },
         cuisines: {
             all: [],
@@ -46,7 +48,7 @@ const store = new Vuex.Store({
         },
         bars: {
             all: [],
-            filtered: []
+            filtered: [],
         },
         attractions: {
             all: [],
@@ -106,13 +108,13 @@ const store = new Vuex.Store({
             }
             state.restaurantCosts.selected = payload.cost;
         },
-        setSelectedRestaurantSort(state, payload) {
-            if (state.restaurants.sort === payload.sort) {
-                state.restaurants.sortDir = state.restaurants.sortDir === 'asc' ? 'desc' : 'asc';
+        setSort(state, payload) {
+            if (state.sort.sort === payload.sort) {
+                state.sort.dir = state.sort.dir === 'asc' ? 'desc' : 'asc';
             } else {
-                state.restaurants.sortDir = 'asc';
+                state.sort.dir = 'asc';
             } 
-            state.restaurants.sort = payload.sort;
+            state.sort.sort = payload.sort;
         },
         setBars(state, payload) {
             state.bars.all = payload.bars;
