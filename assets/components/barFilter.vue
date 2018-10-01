@@ -1,17 +1,29 @@
 <template>
     <div class="bar-filter">
-        <div class="controls" id="sort">
-            <div>
-                <label @click="updateBarSort('alpha')" data-sort="alpha">Alphabetic</label>
-            </div>
+        <div class="controls-container">
+            <table>
+                <tr>
+                    <td class="header">Sort</td>
+                </tr>
+                <tr>
+                    <td class="controls">
+                        <label @click="updateBarSort('alpha')" data-sort="alpha">Alphabetic</label>
+                    </td>
+                </tr>
+            </table>
         </div>
-        <ul>
-            <li v-for="bar in filteredBars" class="bar-container">
-                <div class="title">
-                    {{ bar.title }}
-                </div>
-            </li>
-        </ul>
+        <div v-if="filteredBars.length">
+            <ul>
+                <li v-for="bar in filteredBars" class="bar-container">
+                    <div class="title">
+                        {{ bar.title }}
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div v-else>
+            No results
+        </div>
     </div>
 </template>
-<script src="./barFilter.js"></script>
+<script src="./barFilter.js"></cript>

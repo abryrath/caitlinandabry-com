@@ -16,57 +16,11 @@ export default Vue.component('restaurant-filter', {
             console.log('selectedCost()');
             return this.$store.state.restaurantCosts.selected;
         },
-        // filteredRestaurants() {
-            
-        //     console.log('restaurantFilter::filteredRestaurants()');
-        //     const restaurants = this.$store.state.restaurants.all;
-        //     let filtered = [];
-
-        //     // Cuisine
-        //     if (this.$store.state.cuisines.selected.length === 0
-        //         || this.$store.state.cuisines.selected.includes('all')) {
-        //         return restaurants;
-        //     }
-
-        //     const selected = this.$store.state.cuisines.selected;
-                
-        //     filtered = restaurants.filter(t => {
-        //         // console.log(t);
-        //         for (var key in t.cuisines) {
-        //             //console.log(key);
-        //             //if (parseInt(key)) {
-        //                 //console.log('value: ' + t.cuisines[key].value + ' selected: ', selected);
-        //                 if (selected.includes(t.cuisines[key].value)) {
-        //                     return true;
-        //                 }
-        //             //}
-        //         }
-        //         return false;
-        //     });
-            
-        //     //Cost
-        //     const cost = this.selectedCost;
-        //     console.log(cost);
-        //     if (cost.length > 0) {
-        //         filtered = restaurants.filter(t => {
-        //             for (var key in t.cost) {
-        //                 console.log(key);
-        //             }
-        //         });
-        //     }
-
-        //     // Sort
-        //     console.log('sorting');
-            
-        //     filtered = SortUtil.restaurantSort(filtered, this.$store.state.restaurants.sort, this.$store.state.restaurants.sortDir);
-            
-        //     return filtered;
-        // }
     },
     data() {
         return {
-            filteredRestaurants: this.restaurants,
-        }
+            filteredRestaurants: this.getRestaurants(),
+        };
     },
     mounted() {
         console.log('restaurant-filter mounted');
@@ -148,7 +102,6 @@ export default Vue.component('restaurant-filter', {
                 .then(j => {
                     this.filteredRestaurants = j;
                 });
-            
         }
     }
 });

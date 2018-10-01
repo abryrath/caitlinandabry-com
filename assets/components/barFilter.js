@@ -4,7 +4,7 @@ export default Vue.component('bar-filter', {
     props: ['bars'],
     data() {
         return {
-            filteredBars: this.bars
+            filteredBars: this.getBars()
         };
     },
     mounted() {
