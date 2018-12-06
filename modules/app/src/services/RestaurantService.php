@@ -7,25 +7,53 @@ use craft\elements\Entry;
 
 class RestaurantService
 {
+    public function filter($params)
+    {
+        $cuisines = [];
+        
+        $query = Entry::find()
+            ->section('restaurants');
+
+        if (key_exists('cuisine', $params)) {
+            if ($params['cuisine']) {
+                $cuisines = explode(',', $params['cuisine']);
+                $query = $query->relatedTo($cuisines);
+            }
+            unset($params['cuisine']);
+        }
+    
+        if (key_exists('cost', $params)) {
+            if ($params['cost']) {
+                $costs = explode(',', $params['cost']);
+                $query = $query->relatedTo($costs);
+            }
+            unset($params['cost']);
+        }
+
+        $query = Craft::configure($query, $params);
+
+        return $query;
+    }
+
     public function all()
     {
         $restaurants = Entry::find()
-                     ->section('restaurants')
-                     ->all();
-        $map = function($rest) {
-            return [
-                'id' => $rest->id,
-                'title' => $rest->title,
-                'cuisines' => $rest->cuisine,
-                //'address' => $rest->restaurantAddress,
-                'epicentre' => $rest->restaurantEpicentre,
-                'cost' => $rest->restaurantCost->value,
-                'prox' => $rest->restaurantProximity,
-                'desc' => $rest->restaurantDescription,
-            ];
-        };
+                     ->section('restaurants');
+                    //  ->all();
+        // $map = function($rest) {
+        //     return [
+        //         'id' => $rest->id,
+        //         'title' => $rest->title,
+        //          'cuisines' => $rest->cuisine,
+        //         //'address' => $rest->restaurantAddress,
+        //         'epicentre' => $rest->restaurantEpicentre,
+        //         'cost' => $rest->restaurantCost->value,
+        //         'prox' => $rest->restaurantProximity,
+        //         'desc' => $rest->restaurantDescription,
+        //     ];
+        // };
 
-        return array_map($map, $restaurants);
+        // return array_map($map, $restaurants);
     }
 
     public function filtered($opts)

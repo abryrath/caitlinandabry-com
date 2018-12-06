@@ -1,5 +1,0 @@
-{% extends '_layouts/default' %}
-{% block content %}
-    {% set attractions = craft.app.get('attractions').all() %}
-    <div data-vue is="attraction-filter" :attractions="{{ attractions | json_encode }}"></div>
-{% endblock %}

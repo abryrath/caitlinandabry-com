@@ -1,0 +1,5 @@
+{% for restaurant in restaurants %}
+    {% include 'things-to-do/dine/card' with {
+        restaurant: restaurant,
+    } only %}
+{% endfor %}

@@ -1,8 +1,0 @@
-{% extends '_layouts/default' %}
-
-{% block content %}
-    {% set bars = craft.app.get('bars').all() %}
-    <div data-vue is="bar-filter" :bars="{{ bars | json_encode}}">
-        <bar-filter></bar-filter>
-    </div>
-{% endblock %}

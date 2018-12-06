@@ -13,13 +13,8 @@
     </head>
     <body>
         <div class="body">
-            <section id="header" name="header">
-                <div class="header-container">
-                    <div class="header-title">Caitlin & Abry</div>
-                    {% include '_partials/menu.twig' %}
-                </div>
-            </section>
-            
+            {% include '_partials/header' %}
+                        
             <section id="content" name="content">
                 {% set hero = entry.pageHeroImage %}
                 {% if hero | length %}

@@ -9,7 +9,7 @@ class SubMenu
         this.element.addEventListener('click', this.onClick.bind(this));
     }
 
-    onClick (e) {
+    onClick(e) {
         console.log('click');
         this.open = !this.open;
         this.setChildOpen(this.open);
@@ -17,11 +17,12 @@ class SubMenu
     }
 
     setChildOpen(open) {
-        // if (open) {
-        //     this.childContainer.style.display = 'block';
-        // } else {
-        //     this.childContainer.style.display = 'none';
-        // }
+        const activeClass = 'Menu-item-subMenu--mobile-active';
+        if (open) {
+            this.childContainer.classList.add(activeClass);
+        } else {
+            this.childContainer.classList.remove(activeClass);
+        }
     }
 }
 

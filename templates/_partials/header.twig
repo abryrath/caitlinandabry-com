@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta charset="utf-8" />
-        <title>{{title}}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-        <meta name="referrer" content="origin-when-cross-origin" />
-        {% if getenv("APP_ENV") != "development" %}
-        <link rel="stylesheet" type="text/css" href="/main.css" />
-        {% endif %}
-    </head>
-    <body>
-        <div class="body">
-            <section id="header" name="header">
-                <div class="header-container">
-                    <div class="header-title">Caitlin & Abry</div>
-                    {% include 'menu.twig' %}
-                </div>
-            </section>
-            
-            <section id="content" name="content">
-                {% if hero is defined and hero is not null and hero is not empty %}
-                    <div class="hero-container">
-                        <img src="/uploads/{{hero.first.filename}}" />
-                    </div>
-                {% endif %}
-
+<section id="header" name="header">
+    <div class="Header">
+        <div class="Header-title">Caitlin & Abry</div>
+        {% include '_partials/menu.twig' %}
+    </div>
+</section>

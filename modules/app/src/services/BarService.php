@@ -7,6 +7,26 @@ use craft\elements\Entry;
 
 class BarService
 {
+    public function filter($params)
+    {
+        $cuisines = [];
+        
+        $query = Entry::find()
+            ->section('bars');
+    
+        if (key_exists('cost', $params)) {
+            if ($params['cost']) {
+                $costs = explode(',', $params['cost']);
+                $query = $query->relatedTo($costs);
+            }
+            unset($params['cost']);
+        }
+
+        $query = Craft::configure($query, $params);
+
+        return $query;
+    }
+    
     public function all()
     {
         $bars = Entry::find()

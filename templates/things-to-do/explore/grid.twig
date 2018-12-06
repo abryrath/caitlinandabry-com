@@ -1,0 +1,5 @@
+{% for attraction in attractions %}
+    {% include 'things-to-do/explore/card' with {
+        attraction: attraction,
+    } only %}
+{% endfor %}

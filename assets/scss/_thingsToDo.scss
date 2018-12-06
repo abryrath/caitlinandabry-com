@@ -1,0 +1,16 @@
+.ThingsToDo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    //padding: 1rem;
+
+    &-card {
+        border: 1px solid #000;
+        flex: 1 1 20%;
+        min-height: 200px;
+        margin: 1rem;
+        padding: 1rem;
+    }
+}

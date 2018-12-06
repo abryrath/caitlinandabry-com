@@ -1,16 +1,4 @@
-{% set options = [
-    {'name': 'Home', 'url': '/'},
-    {'name': 'Our Story', 'url': '/our-story'},
-    {'name': 'Details', 'url': '/details'},
-    {'name': 'Travel & Accommodations', 'url': '/travelAccommodations'},
-    {'name': 'Things To Do', 'url': '/thingsToDo'},
-    {'name': 'Wedding Party', 'url': '/wedding-party'},
-    {'name': 'Registry', 'url': '/registry'},
-    {'name': 'Photos', 'url': '/photos'}
-]
-%}
-
-<nav>
+<nav role="navigation">
     <div class="Menu">
         <ul>
             {% for link in navMenu.navMenu.all %}
@@ -20,5 +8,4 @@
             {% endfor %}
         </ul>
     </div>
-    {# <div id="menu-root"></div> #}
 </nav>

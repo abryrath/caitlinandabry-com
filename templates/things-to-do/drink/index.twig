@@ -1,0 +1,34 @@
+{% set isAjax = craft.app.request.isAjax %}
+{% extends isAjax ? '_layouts/ajax' : '_layouts/default' %}
+
+{% set costFilter = craft.app.request.getParam('cost') %}
+{% set barQuery = craft.app.get('bars').filter({
+    cost: costFilter,
+    limit: 12,
+    orderBy: 'title asc',
+}) %}
+
+{% set costs = craft.entries.section('costs').orderBy('title desc').all %}
+
+{% paginate barQuery as pageInfo, bars %}
+
+{% block content %}
+    {% if isAjax %}
+        {% include 'things-to-do/drink/grid' with {
+        bars: bars,
+    } only %}
+    {% else %}
+        {% include 'things-to-do/listingFilter' with {
+            type: 'things-to-do/drink',
+            costs: costs,
+        } only %}
+        <div class="ThingsToDo">
+            {% include 'things-to-do/drink/grid' with {
+                bars: bars,
+            } only %}
+        </div>
+        {% include 'things-to-do/paginate' with {
+            pageInfo: pageInfo,
+        } only %}
+    {% endif %}
+{% endblock %}

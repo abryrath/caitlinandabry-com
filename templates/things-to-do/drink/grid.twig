@@ -1,0 +1,5 @@
+{% for bar in bars %}
+    {% include 'things-to-do/drink/card' with {
+        bar: bar,
+    } only %}
+{% endfor %}
