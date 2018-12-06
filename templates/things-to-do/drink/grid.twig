@@ -1,5 +1,9 @@
-{% for bar in bars %}
-    {% include 'things-to-do/drink/card' with {
+{% if bars is empty %}
+    No results
+{% else %}
+    {% for bar in bars %}
+        {% include 'things-to-do/drink/card' with {
         bar: bar,
     } only %}
-{% endfor %}
+    {% endfor %}
+{% endif %}

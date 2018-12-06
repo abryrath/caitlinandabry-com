@@ -10,14 +10,12 @@
 
 {% set costs = craft.entries.section('costs').orderBy('title desc').all %}
 
-{% paginate barQuery as pageInfo, attractions %}
+{% paginate attractionQuery as pageInfo, attractions %}
 
 {% block content %}
     {% if isAjax %}
         {% include 'things-to-do/explore/grid' with {
-        attractions
-    : attractions
-    ,
+        attractions: attractions,
     } only %}
     {% else %}
         {% include 'things-to-do/listingFilter' with {
