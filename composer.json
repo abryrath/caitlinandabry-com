@@ -1,11 +1,12 @@
 {
   "require": {
-    "craftcms/cms": "3.0.25",
+    "craftcms/cms": "3.0.34",
     "vlucas/phpdotenv": "^2.4.0",
     "craftcms/redactor": "2.1.6",
     "craftcms/aws-s3": "^1.0",
     "bolden/htmlcache": "1.0.4",
-    "craftcms/element-api": "2.5.4"
+    "craftcms/element-api": "2.5.4",
+    "verbb/super-table": "2.0.14"
   },
   "autoload": {
     "psr-4": {

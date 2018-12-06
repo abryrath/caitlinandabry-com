@@ -2,21 +2,26 @@
 
 {% block content %}
     <div class="content">
-        <h1>Wedding Party</h1>
+        <h1>{{ entry.headline }}</h1>
+        {# <h1>Wedding Party</h1> #}
 
         <div class="wedding-party-columns">
             <div>
                 <ul id="bridesmaids">
                     {% for bridesmaid in entry.bridesmaidList %}
-                        {%include '_partials/weddingPartyMember.twig' with {member: bridesmaid}%}
+                        {% include 'wedding-party/person' with {
+                            member: bridesmaid
+                        } only %}
                     {%endfor%}
                 </ul>
             </div>
             <div>
                 <ul id="groomsmen">
                     {% for groomsman in entry.groomsmenList %}
-                        {%include '_partials/weddingPartyMember.twig' with {member: groomsman}%}
-                    {%endfor%}
+                        {% include 'wedding-party/person' with {
+                            member: groomsman
+                        } only %}
+                    {% endfor %}
                 </ul>
             </div>
         </div>
