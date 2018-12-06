@@ -5,7 +5,8 @@ import './scss/app.scss';
 
 import VModal from 'vue-js-modal';
 import store from './store'; 
-import Menu from './components/menu/Menu.vue';
+//import Menu from './components/menu/Menu.vue';
+import Menu from './components/menu.js';
 import restaurant from './components/restaurant.vue';
 import restaurantModal from './components/restaurantModal.vue';
 import restaurantFilter from './components/restaurantFilter.vue';

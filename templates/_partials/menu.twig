@@ -11,5 +11,14 @@
 %}
 
 <nav>
-    <div id="menu-root"></div>
+    <div class="Menu">
+        <ul>
+            {% for link in navMenu.navMenu.all %}
+                {% include '_partials/nav-menu/' ~ link.type.handle with {
+                    link: link
+                } only %}
+            {% endfor %}
+        </ul>
+    </div>
+    {# <div id="menu-root"></div> #}
 </nav>

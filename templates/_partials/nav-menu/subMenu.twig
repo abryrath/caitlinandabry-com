@@ -1,0 +1,14 @@
+<li class="Menu-item" data-nav-parent="{{ link.id }}">
+    <a>
+        {{ link.displayText }}
+    </a>
+    <div class="Menu-item-subMenu" data-nav-child="{{ link.id }}">
+        {% for child in link.internalLink.all %}
+            <div>
+                <a href="{{ child.page.one.url }}">
+                    {{ child.displayText }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</li>

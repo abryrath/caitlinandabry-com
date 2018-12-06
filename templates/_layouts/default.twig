@@ -33,11 +33,11 @@
             
             <section id="footer" name="footer">
                 
-                {%if getenv("APP_ENV") == "development"%}
+                {% if getenv("APP_ENV") == "development" %}
                     <script src="http://localhost:8080/main.js"></script>
-                {%else%}
+                {% else %}
                     <script src="/main.js"></script>
-                {%endif%}
+                {% endif %}
             </section>
         </div>
     </body>
