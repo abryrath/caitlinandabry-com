@@ -1,0 +1,82 @@
+@import 'fonts';
+@import 'colors';
+@import 'mixins';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: $font-md;
+  font-family: $sans;
+  background-color: $page-bg;//rgba(10,10,10,.8);
+}
+
+.body::before {
+  //background-color: $page-bg;
+  //background-image: url('/public/icons/kauai.jpg');// no-repeat;
+  //background-repeat: no-repeat;
+ // background-size: 200%;
+  //background-attachment: fixed;
+  z-index: -1;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.body {
+  background-color: #ffffff;
+  @include mobile {
+    padding: 20px 20px 0;
+  }
+  @include desktop {
+    padding: 100px 40px 200px 40px;
+    margin: 0 auto 300px auto;
+    border-radius: 1rem;
+  }
+
+  max-width: 1000px;
+  min-height: 50vh;
+}
+
+ul {
+  padding-left: 0;
+}
+a {
+  text-decoration: none;
+  color: $color-1;
+}
+
+h1 {
+  text-align: center;
+  font-size: $font-lg;
+  font-family: $serif;
+  font-weight: normal;
+}
+
+p {
+  font-family: $sans;
+  font-size: $font-md;
+}
+
+section {
+  margin-bottom: 10rem;
+}
+
+section > img {
+  max-width: 100%;
+}
+
+section[name="content"] {
+  @include desktop {
+    margin: 20px 100px;
+  }
+
+  @include mobile {
+    padding-bottom: 50vh;
+  }
+}

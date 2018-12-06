@@ -16,7 +16,7 @@
   label {
     padding: 2px 5px;
     line-height: 3rem;
-    margin: 1rem 1rem;
+    margin: 3px;
     text-transform: uppercase;
     border-radius: 2px;
     background-color: $color-5;
@@ -26,8 +26,13 @@
   }
 }
 
+.cuisine:before {
+  content: 'Cuisine';
+}
+
 td.header {
-  background-color: $color-4;
+  // background-color: $color-4;
+  border-bottom: 1px solid $color-4;
 }
 td.type {
   vertical-align: top;

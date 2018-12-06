@@ -19,6 +19,7 @@
                     </tr>
                 </tbody>
             </table>
+            <h2>More information coming soon</h2>
             <button @click="$modal.hide('modal-'+id)">Close</button>
         </div>
     </modal>

@@ -6,15 +6,23 @@
                     <td class="header">Filters</td>
                 </tr>
                 <tr>
-                    <td class="controls">
-                        <label v-for="cuisine in $store.getters.allCuisines" @click="updateCuisineFilter(cuisine.key)" :data-label="cuisine.key">
+                    <td class="controls cuisine">
+                        <label 
+                        v-for="cuisine in $store.getters.allCuisines" 
+                        @click="updateCuisineFilter(cuisine.key)" 
+                        v-bind:key="cuisine.key"
+                        :data-label="cuisine.key">
                             {{ cuisine.value }}
                         </label>
                     </td>
                 </tr>
                 <tr>
                     <td class="controls">
-                        <label v-for="cost in $store.getters.restaurantCosts" @click="updateRestaurantCostFilter(cost.key)" :data-cost="cost.key">
+                        <label 
+                        v-for="cost in $store.getters.restaurantCosts" 
+                        @click="updateRestaurantCostFilter(cost.key)" 
+                        v-bind:key="cost.key"
+                        :data-cost="cost.key">
                             {{ cost.value }}
                         </label>
                     </td>

@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'server' => [
+        'path' => getenv('ASSETS_BASE_PATH'),
+        'url' => getenv('ASSETS_BASE_URL'),
+    ],
     'caitlinandabry' => [
         'hasUrls' => true,
         'url' => 'https://'.getenv('S3_BUCKET').'.s3.amazonaws.com',
