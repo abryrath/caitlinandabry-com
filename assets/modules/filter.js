@@ -22,6 +22,10 @@ const filter = () => {
             const section = document.querySelector('.ThingsToDo');
             section.innerHTML = '';
             section.innerHTML = content;
+
+            if (window.map) {
+                
+            }
         });
 
 };

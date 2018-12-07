@@ -23,14 +23,18 @@ restaurants %}
                 }
             } only %}
             
-            {% include 'things-to-do/listingFilter' with {
+            {# {% include 'things-to-do/listingFilter' with {
                 type: 'things-to-do/dine',
                 cuisines: cuisines,
                 costs: costs,
                 epicentre: true,
+            } only %} #}
+
+            {% include '_partials/map' with {
+                places: restaurantQuery.all(),
             } only %}
-            
-            <div class="ThingsToDo">
+
+            {# <div class="ThingsToDo">
                 {% include 'things-to-do/dine/grid' with {
                     restaurants: restaurants,
                 } only %}
@@ -38,6 +42,6 @@ restaurants %}
 
             {% include 'things-to-do/paginate' with {
                 pageInfo: pageInfo
-            } only %}
+            } only %} #}
         {% endif %}
     {% endblock %}

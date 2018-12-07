@@ -1,0 +1,10 @@
+<div class="Map">
+    {% set showPlaces = [] %}
+    {# {{ dump(places[0].location) }} #}
+    {% for place in places %}
+        {% if place.location is not empty %}
+            {% set showPlaces = showPlaces |merge([place.location]) %}
+        {% endif %}
+    {% endfor %}
+    <div class="Map-data" data-map="data-map" data-map-places="{{ showPlaces | json_encode }}"></div>
+</div>
