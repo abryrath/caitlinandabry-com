@@ -8,7 +8,7 @@
                 <img src="{{hero.one.getUrl}}"/>
             </div>
         {% endif %}
-        {% for content in entry.detailsContent %}
+        {% for content in entry.detailsContent.all %}
             {% include '_partials/' ~ content.type.handle with {
                 content: content
             } only %}

@@ -7,7 +7,7 @@
                 <img src="{{hero.one.getUrl}}"/>
             </div>
         {% endif %}
-        {% for link in entry.links %}
+        {% for link in entry.links.all %}
             <li>
                 <a href="{{link.linkUrl}}">{{link.linkTitle}}</a>
                 {% if link.additionalInfo | length %}
