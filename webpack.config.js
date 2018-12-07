@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var VueLoaderPlugin = require('vue-loader/lib/plugin');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 var devMode = process.env.NODE_ENV !== 'production';
@@ -12,18 +11,13 @@ module.exports = {
     output: {
         path: path.join(__dirname, '/web'),
         publicPath: '/',
-        //filename: 'main.js'
     },
     mode: devMode ? 'development' : 'production',
     devtool: 'source-map',
     module: {
         rules: [
             {
-                test: /\.vue$/,
-                loader: 'vue-loader'
-            },
-            {
-                test: /\.jsx?$/,
+                test: /\.js$/,
                 include: path.join(__dirname, 'assets', 'js'),
                 exclude: /node_modules/,
                 loader: 'babel-loader'
@@ -69,18 +63,11 @@ module.exports = {
         }
     },
     plugins: [
-        new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
         })
     ],
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js'
-        },
-        extensions: ['*', '.js', '.vue', '.json']
-    },
     serve: {
         options: {
         }

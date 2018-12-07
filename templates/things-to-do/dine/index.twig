@@ -3,35 +3,34 @@
 
 {% set costFilter = craft.app.request.getParam('cost') %}
 {% set cuisineFilter = craft.app.request.getParam('cuisine') %}
-{% set restaurantQuery = craft.app.get('restaurants').filter({
-    cost: costFilter,
-    cuisine: cuisineFilter,
-    limit: 12,
-    orderBy: 'title asc',
-}) %}
+{% set restaurantQuery = craft.app.get('restaurants').filter({cost: costFilter, cuisine: cuisineFilter, limit: 12, orderBy: 'title asc'}) %}
 {% set cuisines = craft.entries.section('cuisines').all %}
 {% set costs = craft.entries.section('costs').orderBy('title desc').all %}
 
-{% paginate restaurantQuery as pageInfo, restaurants %}
+{% paginate restaurantQuery as pageInfo,
+restaurants %}
 
-{% block content %}
-    {% if isAjax %}
-        {% include 'things-to-do/dine/grid' with {
+    {% block content %}
+        {% if isAjax %}
+            {% include 'things-to-do/dine/grid' with {
         restaurants: restaurants,
     } only %}
-    {% else %}
-        {% include 'things-to-do/listingFilter' with {
+        {% else %}
+            <div class="Section-title">
+                Restaurants
+            </div>
+            {% include 'things-to-do/listingFilter' with {
             type: 'things-to-do/dine',
             cuisines: cuisines,
             costs: costs,
         } only %}
-        <div class="ThingsToDo">
-            {% include 'things-to-do/dine/grid' with {
+            <div class="ThingsToDo">
+                {% include 'things-to-do/dine/grid' with {
                 restaurants: restaurants,
             } only %}
-        </div>
-        {% include 'things-to-do/paginate' with {
+            </div>
+            {% include 'things-to-do/paginate' with {
             pageInfo: pageInfo
         } only %}
-    {% endif %}
-{% endblock %}
+        {% endif %}
+    {% endblock %}

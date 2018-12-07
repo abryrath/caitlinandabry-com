@@ -1,10 +1,18 @@
 {% extends "_layouts/default" %}
 {% block content %}
-    {% for link in entry.links %}
-        <li>
-            <a href="{{link.linkUrl}}">{{link.linkTitle}}</a>
-            {% if link.additionalInfo | length %}
-                - {{ link.additionalInfo }}
-            {% endif %}
-    {% endfor %}
+    {% cache %}
+        {% set hero = entry.pageHeroImage %}
+        {% if hero | length %}
+            <div class="Hero">
+                <img src="{{hero.first.getUrl}}"/>
+            </div>
+        {% endif %}
+        {% for link in entry.links %}
+            <li>
+                <a href="{{link.linkUrl}}">{{link.linkTitle}}</a>
+                {% if link.additionalInfo | length %}
+                    - {{ link.additionalInfo }}
+                {% endif %}
+        {% endfor %}
+    {% endcache %}
 {% endblock %}

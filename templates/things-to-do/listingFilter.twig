@@ -1,7 +1,7 @@
 <div class="Controls" data-filter-data-type="{{ type }}">
     {% if cuisines is defined %}
         <select class="Controls-dropdown" data-filter="cuisine">
-            <option default>Cuisine</option>
+            <option default value="">Cuisine</option>
             {% for cuisine in cuisines %}
                 <option value="{{ cuisine.id }}">{{ cuisine.title }}</option>
             {% endfor %}
@@ -9,7 +9,7 @@
     {% endif %}
     {% if costs is defined %}
         <select class="Controls-dropdown" data-filter="cost">
-            <option default>Cost</option>
+            <option default value="">Cost</option>
             {% for cost in costs %}
                 <option value="{{ cost.id }}">{{ cost.title }}</option>
             {% endfor %}

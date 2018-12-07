@@ -15,9 +15,12 @@
 {% block content %}
     {% if isAjax %}
         {% include 'things-to-do/explore/grid' with {
-        attractions: attractions,
-    } only %}
+            attractions: attractions,
+        } only %}
     {% else %}
+        <div class="Section-title">
+            Attractions
+        </div>
         {% include 'things-to-do/listingFilter' with {
             type: 'things-to-do/explore',
             costs: costs,

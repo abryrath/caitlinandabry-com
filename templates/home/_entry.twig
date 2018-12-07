@@ -1,6 +1,14 @@
 {% extends '_layouts/default' %}
 
 {% block content %}
-    {{entry.bodyParagraph}}
+    {% cache %}
+    {% set hero = entry.pageHeroImage %}
+    {% if hero | length %}
+        <div class="Hero">
+            <img src="{{hero.first.getUrl}}"/>
+        </div>
+    {% endif %}
+    
+    {{ entry.bodyParagraph }}
+    {% endcache %}
 {% endblock %}
-

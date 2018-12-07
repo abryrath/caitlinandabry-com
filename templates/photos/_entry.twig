@@ -1,5 +1,13 @@
 {% extends '_layouts/default' %}
 {% block content %}
-    {% set photos = craft.app.get('photos').all() %}
-    <div data-vue is="photo-lightbox" :photo-data="{{ photos | json_encode }}" class="photos-container"></div>
+    {% cache %}
+        {% set hero = entry.pageHeroImage %}
+        {% if hero | length %}
+            <div class="Hero">
+                <img src="{{hero.first.getUrl}}"/>
+            </div>
+        {% endif %}
+        {% set photos = craft.app.get('photos').all() %}
+        <div data-vue is="photo-lightbox" :photo-data="{{ photos | json_encode }}" class="photos-container"></div>
+    {% endcache %}
 {% endblock %}

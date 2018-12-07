@@ -1,29 +1,31 @@
 {% extends '_layouts/default' %}
 
 {% block content %}
-    <div class="content">
-        <h1>{{ entry.headline }}</h1>
-        {# <h1>Wedding Party</h1> #}
+    {% cache %}
+        <div class="content">
+            <h1>{{ entry.headline }}</h1>
+            {# <h1>Wedding Party</h1> #}
 
-        <div class="wedding-party-columns">
-            <div>
-                <ul id="bridesmaids">
-                    {% for bridesmaid in entry.bridesmaidList %}
-                        {% include 'wedding-party/person' with {
-                            member: bridesmaid
-                        } only %}
-                    {%endfor%}
-                </ul>
-            </div>
-            <div>
-                <ul id="groomsmen">
-                    {% for groomsman in entry.groomsmenList %}
-                        {% include 'wedding-party/person' with {
-                            member: groomsman
-                        } only %}
-                    {% endfor %}
-                </ul>
+            <div class="wedding-party-columns">
+                <div>
+                    <ul id="bridesmaids">
+                        {% for bridesmaid in entry.bridesmaidList %}
+                            {% include 'wedding-party/person' with {
+                                member: bridesmaid
+                            } only %}
+                        {%endfor%}
+                    </ul>
+                </div>
+                <div>
+                    <ul id="groomsmen">
+                        {% for groomsman in entry.groomsmenList %}
+                            {% include 'wedding-party/person' with {
+                                member: groomsman
+                            } only %}
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    {% endcache %}
 {% endblock %}

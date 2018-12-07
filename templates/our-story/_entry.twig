@@ -1,12 +1,21 @@
 {% extends '_layouts/default' %}
 {% block content %}
-    <section name="how-we-met">
-        <h1>{{entry.howWeMetTitle}}</h1>
-        {{entry.howWeMetCopy}}
-    </section>
+    {% cache %}
+        {% set hero = entry.pageHeroImage %}
+        {% if hero | length %}
+            <div class="Hero">
+                <img src="{{hero.first.getUrl}}"/>
+            </div>
+        {% endif %}
+        
+        <section name="how-we-met">
+            <h1>{{entry.howWeMetTitle}}</h1>
+            {{entry.howWeMetCopy}}
+        </section>
 
-    <section name="the-proposal">
-        <h1>{{entry.theProposalTitle}}</h1>
-        {{entry.theProposalCopy}}
-    </section>
+        <section name="the-proposal">
+            <h1>{{entry.theProposalTitle}}</h1>
+            {{entry.theProposalCopy}}
+        </section>
+    {% endcache %}
 {% endblock %}
