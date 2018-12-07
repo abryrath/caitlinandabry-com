@@ -66,7 +66,6 @@ class RestaurantService
                 function ($restaurant) use ($cuisines) {
                     foreach ($restaurant['cuisines']->getOptions() as $opt) {
                         if ($opt->selected) {
-                            //error_log($opt->value);
                             foreach ($cuisines as $c) {
                                 if ($opt->value == $c) {
                                     return true;
@@ -84,7 +83,6 @@ class RestaurantService
             $filtered = array_filter(
                 $filtered,
                 function ($restaurant) use ($cost) {
-                    error_log(print_r($restaurant['cost'], true));
                     return $restaurant['cost'] === $cost;
                 }
             );

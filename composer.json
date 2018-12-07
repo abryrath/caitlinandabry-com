@@ -6,7 +6,8 @@
     "craftcms/aws-s3": "^1.0",
     "bolden/htmlcache": "1.0.4",
     "craftcms/element-api": "2.5.4",
-    "verbb/super-table": "2.0.14"
+    "verbb/super-table": "2.0.14",
+    "verbb/field-manager": "2.0.4"
   },
   "autoload": {
     "psr-4": {
