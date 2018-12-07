@@ -1,21 +1,17 @@
 {% extends '_layouts/default' %}
 {% block content %}
-    {% cache globally unless getenv('APP_ENV') == 'development' %}
+    {# {% cache globally unless getenv('APP_ENV') == 'development' %} #}
         {% set hero = entry.pageHeroImage %}
         {% if hero | length %}
             <div class="Hero">
-                <img src="{{hero.first.getUrl}}"/>
+                <img src="{{hero.one.getUrl}}"/>
             </div>
         {% endif %}
 
-        <section name="how-we-met">
-            <h1>{{entry.howWeMetTitle}}</h1>
-            {{entry.howWeMetCopy}}
-        </section>
-
-        <section name="the-proposal">
-            <h1>{{entry.theProposalTitle}}</h1>
-            {{entry.theProposalCopy}}
-        </section>
-    {% endcache %}
+        {% for content in entry.ourStoryContent %}
+            {% include '_partials/' ~ content.type.handle with {
+                content: content
+            } only %}
+        {% endfor %}
+    {# {% endcache %} #}
 {% endblock %}

@@ -4,7 +4,7 @@
         {% set hero = entry.pageHeroImage %}
         {% if hero | length %}
             <div class="Hero">
-                <img src="{{hero.first.getUrl}}"/>
+                <img src="{{hero.one.getUrl}}"/>
             </div>
         {% endif %}
         {% for link in entry.links %}

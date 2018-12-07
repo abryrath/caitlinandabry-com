@@ -2,13 +2,15 @@
 
 {% block content %}
     {% cache globally unless getenv('APP_ENV') == 'development' %}
-    {% set hero = entry.pageHeroImage %}
-    {% if hero | length %}
-        <div class="Hero">
-            <img src="{{ hero.one.getUrl }}"/>
-        </div>
-    {% endif %}
-    
-    {{ entry.bodyParagraph }}
+        {% set hero = entry.pageHeroImage %}
+        {% if hero | length %}
+            <div class="Hero">
+                <img src="{{ hero.one.getUrl }}"/>
+            </div>
+        {% endif %}
+
+        {% include '_partials/wysiwyg' with {
+            content: entry.wysiwyg,
+        } only %}
     {% endcache %}
 {% endblock %}

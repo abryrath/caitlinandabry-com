@@ -1,35 +1,17 @@
 {% extends '_layouts/default' %}
 
 {% block content %}
-    {% cache globally unless getenv('APP_ENV') == 'development' %}
+    {# {% cache globally unless getenv('APP_ENV') == 'development' %} #}
         {% set hero = entry.pageHeroImage %}
         {% if hero | length %}
             <div class="Hero">
-                <img src="{{hero.first.getUrl}}"/>
+                <img src="{{hero.one.getUrl}}"/>
             </div>
         {% endif %}
-        <section name="the-big-day">
-            <h1>{{entry.theBigDayTitle}}</h1>
-            {{entry.theBigDayCopy}}
-            {% if entry.theBigDayImage.one() %}
-                <img src="{{entry.theBigDayImage.one().url}}"/>
-            {% endif %}
-        </section>
-
-        <section name="the-ceremony">
-            <h1>{{entry.theCeremonyTitle}}</h1>
-            {{entry.theCeremonyCopy}}
-            {% if entry.theCeremonyImage.one() %}
-                <img src="{{entry.theCeremonyImage.one().url}}"/>
-            {% endif %}
-        </section>
-
-        <section name="the-reception">
-            <h1>{{entry.theReceptionTitle}}</h1>
-            {{entry.theReceptionCopy}}
-            {% if entry.theReceptionImage.one() %}
-                <img src="{{entry.theReceptionImage.one().url}}"/>
-            {% endif %}
-        </section>
-    {% endcache %}
+        {% for content in entry.detailsContent %}
+            {% include '_partials/' ~ content.type.handle with {
+                content: content
+            } only %}
+        {% endfor %}
+    {# {% endcache %} #}
 {% endblock %}
