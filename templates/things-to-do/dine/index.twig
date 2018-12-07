@@ -16,21 +16,28 @@ restaurants %}
         restaurants: restaurants,
     } only %}
         {% else %}
-            <div class="Section-title">
-                Restaurants
-            </div>
+            {% include '_partials/wysiwyg' with {
+                content : {
+                    sectionHeading: 'Restaurants',
+                    copy: ''
+                }
+            } only %}
+            
             {% include 'things-to-do/listingFilter' with {
-            type: 'things-to-do/dine',
-            cuisines: cuisines,
-            costs: costs,
-        } only %}
+                type: 'things-to-do/dine',
+                cuisines: cuisines,
+                costs: costs,
+                epicentre: true,
+            } only %}
+            
             <div class="ThingsToDo">
                 {% include 'things-to-do/dine/grid' with {
-                restaurants: restaurants,
-            } only %}
+                    restaurants: restaurants,
+                } only %}
             </div>
+
             {% include 'things-to-do/paginate' with {
-            pageInfo: pageInfo
-        } only %}
+                pageInfo: pageInfo
+            } only %}
         {% endif %}
     {% endblock %}

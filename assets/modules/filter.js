@@ -1,15 +1,16 @@
-class Filter {
-    constructor(node, type) {
-        this.element = node;
-        this.filterType = type;
-        this.dataType = document.querySelector('[data-filter-data-type]').dataset.filterDataType;
-        this.element.addEventListener('change', this.onChange.bind(this));
-    }
+const filter = () => {
+    window.filters = window.filters || [];
+    const dataType = document.querySelector('[data-filter-data-type]').dataset.filterDataType;
 
-    onChange(e) {
-        console.log(e.target);
-        const value = e.target.selectedOptions[0].value;
-        const requestUrl = `/${this.dataType}/?${this.filterType}=${value}`
+    let queryString = '';
+    window.filters.forEach(filter => {
+        if (queryString.length) {
+            queryString += '&';
+        }
+        queryString += filter.getFilterString();
+    });
+
+    const requestUrl = `/${dataType}/?${queryString}`
         fetch(requestUrl, {
             credentials: 'same-origin',
             headers: {
@@ -22,6 +23,69 @@ class Filter {
             section.innerHTML = '';
             section.innerHTML = content;
         });
+
+};
+
+class DropdownFilter {
+    constructor(node, type) {
+        window.filters = window.filters || [];
+        this.element = node;
+        this.filterType = type;
+        this.element.addEventListener('change', this.onChange.bind(this));
+        window.filters.push(this);
+    }
+
+    onChange(e) {
+        filter();
+    }
+
+    getValue() {
+        return this.element.selectedOptions[0].value;
+    }
+
+    getFilterString() {
+        return `${this.filterType}=${this.getValue()}`;
+    }
+}
+
+class CheckboxFilterGroup {
+    constructor(node, type) {
+        window.filters = window.filters || [];
+        this.element = node;
+        this.checkboxes = [];
+        this.filterType = type;
+        Array.prototype.forEach.call(this.element.children, child => {
+            if (child.type == 'checkbox') {
+                if (child.dataset.label) {
+                    document.querySelector(`label[for="${child.id}"]`).innerText = child.dataset.label;
+                }
+                child.addEventListener('change', this.onChange.bind(this));
+                this.checkboxes.push(child);
+            }
+        });
+        window.filters.push(this);
+    }
+
+    onChange(e) {
+        filter();
+    }
+
+    getValues() {
+        let values = '';
+        Array.prototype.forEach.call(this.checkboxes, checkbox => {
+            if (checkbox.checked) {
+                if (values.length) {
+                    values += ',';
+                }
+                values += checkbox.dataset.label;
+            }
+        });
+
+        return values;
+    }
+
+    getFilterString() {
+        return `${this.filterType}=${this.getValues()}`;
     }
 }
 
@@ -29,10 +93,14 @@ export const onInit = () => {
     const filters = document.querySelectorAll('[data-filter]');
     if (filters && filters.length) {
         filters.forEach(filter => {
-            switch (filter.dataset.filter) {
+            const filterType = filter.dataset.filter;
+            switch (filterType) {
                 case 'cuisine':
                 case 'cost':
-                    new Filter(filter, filter.dataset.filter);
+                    new DropdownFilter(filter, filterType);
+                    break;
+                case 'epicentre':
+                    new CheckboxFilterGroup(filter, filterType);
                     break;
                 default:
                     console.log('no match');

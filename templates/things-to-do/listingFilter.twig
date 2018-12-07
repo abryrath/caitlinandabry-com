@@ -15,4 +15,12 @@
             {% endfor %}
         </select>
     {% endif %}
+    {% if epicentre is defined and epicentre %}
+        <div class="Controls-checkbox-group" data-filter="epicentre">
+            <label for="checkbox-epicentre"></label>
+            <input type="checkbox" id="checkbox-epicentre" class="Controls-checkbox" data-label="Epicentre" checked=true>
+            <label for="checkbox-other"></label>
+            <input type="checkbox" id="checkbox-other" class="Controls-checkbox" data-label="Other" checked=true>
+        </div>
+    {% endif %}
 </div>
