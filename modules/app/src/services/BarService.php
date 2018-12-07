@@ -26,14 +26,14 @@ class BarService
 
         return $query;
     }
-    
+
     public function all()
     {
         $bars = Entry::find()
               ->section('bars')
               ->all();
 
-        $map = function($b) {
+        $map = function ($b) {
             return [
                 'title' => $b->title,
             ];
@@ -57,12 +57,12 @@ class BarService
                         $val = $a['title'] < $b['title']
                              ? -1
                              : ($a['title'] > $b['title'] ? 1 : 0);
-                        return $sortDir == 'asc' ? $val : $val*-1; 
+                        return $sortDir == 'asc' ? $val : $val*-1;
                     }
                 );
             }
         }
+        
         return $filtered;
-
     }
 }

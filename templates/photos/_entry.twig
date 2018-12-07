@@ -1,6 +1,6 @@
 {% extends '_layouts/default' %}
 {% block content %}
-    {% cache %}
+    {% cache globally unless getenv('APP_ENV') == 'development' %}
         {% set hero = entry.pageHeroImage %}
         {% if hero | length %}
             <div class="Hero">

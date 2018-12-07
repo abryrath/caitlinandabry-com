@@ -1,7 +1,7 @@
 {% extends '_layouts/default' %}
 
 {% block content %}
-    {% cache %}
+    {% cache globally unless getenv('APP_ENV') == 'development' %}
         <div class="content">
             <h1>{{ entry.headline }}</h1>
             {# <h1>Wedding Party</h1> #}

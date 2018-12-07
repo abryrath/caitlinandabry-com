@@ -101,7 +101,7 @@ class RestaurantService
                         $val = $a['title'] < $b['title']
                              ? -1
                              : ($a['title'] > $b['title'] ? 1 : 0);
-                        return $sortDir == 'asc' ? $val : $val*-1; 
+                        return $sortDir == 'asc' ? $val : $val*-1;
                     }
                 );
             }

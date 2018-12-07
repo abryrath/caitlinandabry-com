@@ -1,13 +1,13 @@
 {% extends '_layouts/default' %}
 {% block content %}
-    {% cache %}
+    {% cache globally unless getenv('APP_ENV') == 'development' %}
         {% set hero = entry.pageHeroImage %}
         {% if hero | length %}
             <div class="Hero">
                 <img src="{{hero.first.getUrl}}"/>
             </div>
         {% endif %}
-        
+
         <section name="how-we-met">
             <h1>{{entry.howWeMetTitle}}</h1>
             {{entry.howWeMetCopy}}

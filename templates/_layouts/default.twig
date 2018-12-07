@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en-US">
-    {% cache %}
+    {% cache globally unless getenv('APP_ENV') == 'development' %}
         <head>
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta charset="utf-8" />
@@ -20,7 +20,7 @@
             <section id="content" name="content">
                 {{ block('content') }}
             </section>
-            {% cache %}
+            {% cache globally unless getenv('APP_ENV') == 'development' %}
                 <section id="footer" name="footer">
                     {% if getenv("APP_ENV") == "development" %}
                         <script src="http://localhost:8080/main.js"></script>
