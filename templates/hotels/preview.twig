@@ -1,0 +1,23 @@
+<div class="Hotel">
+    <div class="Hotel-image">
+        <img src="{{ hotel.hotelImage.one.getUrl('hotelPreview') }}">
+    </div>
+    <div class="Hotel-content">
+        <div class="Hotel-content--desc">
+            {{ hotel.hotelDescription | replace({
+                '<p>': '<p class="Wysiwyg-copy">',
+            }) |raw }}
+        </div>
+        <div class="Hotel-content--address">
+            <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{ hotel.hotelAddress | url_encode }}">
+                {{ hotel.hotelAddress | nl2br }}
+            </a>        
+        </div>
+        <div class="Hotel-content--phone">
+            <a href="tel:{{ hotel.hotelPhone }}">{{ hotel.hotelPhone }}</a>
+        </div>
+
+
+        {# {{ dump(hotel.location) }} #}
+    </div>
+</div>

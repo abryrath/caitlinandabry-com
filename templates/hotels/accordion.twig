@@ -1,0 +1,14 @@
+<div class="Accordion" data-accordion="data-accordion">
+    {% for child in children %}
+        <div class="Accordion-child" data-accordion-child="{{ child.id }}">
+            <div class="Accordion-child--title" data-accordion-child-title="{{ child.id }}">
+                <span>{{ child.title }}</span>
+            </div>
+            <div class="Accordion-child--body" data-accordion-child-body="{{ child.id}}">
+                {% include 'hotels/preview' with {
+                    hotel : child
+                } only %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

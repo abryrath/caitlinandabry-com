@@ -1,0 +1,15 @@
+<div class="Accordion" data-accordion>
+    {% for child in children %}
+        <div class="Accordion-child" data-accordion-child="{{ child.id }}">
+            <div class="Accordion-child--title" data-accordion-child-title="{{ child.id }}">
+                <span>{{ child.travelTitle }}</span>
+            </div>
+            <div class="Accordion-child--body" data-accordion-child-body="{{ child.id}}">
+                {{ child.body | replace({
+                    '<p>': '<p class="Wysiwyg-copy">',
+                    '<ul>': '<ul class="Wysiwyg-list">',
+                })|raw }}
+            </div>
+        </div>
+    {% endfor %}
+</div>

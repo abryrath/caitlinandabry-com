@@ -158,6 +158,13 @@ section[name="header"] {
     background-image: linear-gradient(-90deg, #CCD6DD, #FFFFFF); }
   .Wysiwyg-copy {
     font-family: "Baskerville", serif; }
+  .Wysiwyg-list {
+    font-family: "Baskerville", serif;
+    margin-top: 1rem;
+    margin-left: 1rem; }
+    .Wysiwyg-list > li {
+      margin-left: 2rem;
+      margin-bottom: 1rem; }
 
 .Image > img {
   max-width: 100%; }
@@ -226,6 +233,53 @@ td.type {
     font-family: "Baskerville", serif;
     border: 1px solid #E1E8ED; }
 
+.Map {
+  width: 100%;
+  display: block;
+  min-height: 600px; }
+  .Map-data {
+    min-height: 600px;
+    width: 100%; }
+  .Map-infoWindow--rating {
+    margin-bottom: .5rem; }
+  .Map-infoWindow--open {
+    margin-bottom: .5rem; }
+  .Map-infoWindow--directions {
+    color: #66757F; }
+  .Map-infoWindow--image {
+    max-width: 100%; }
+    .Map-infoWindow--image img {
+      max-height: 200px; }
+
+.Accordion {
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .Accordion-child {
+    margin-bottom: 1rem;
+    width: 100%; }
+    .Accordion-child--title {
+      border-bottom: 1px solid #66757F;
+      padding: 1rem;
+      font-family: "Baskerville", serif; }
+      .Accordion-child--title > span {
+        pointer-events: none;
+        transition: all 500ms ease-in-out; }
+      .Accordion-child--title.active > span {
+        margin-left: 1rem; }
+    .Accordion-child--body {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0;
+      transition: max-height 500ms ease-in-out; }
+      .Accordion-child--body.active {
+        padding: 2rem 5rem;
+        max-height: 800px;
+        padding-bottom: 2rem; }
+
 .Hero {
   margin: 0 auto;
   margin-bottom: 10rem; }
@@ -254,77 +308,23 @@ td.type {
   .wedding-party-columns > div:first-child {
     margin-right: 20px; }
 
-.hotel-container {
+.Hotel {
   display: flex;
-  flex-direction: column;
-  padding: 1rem; }
-  .hotel-container > * {
-    padding: 1rem; }
-  .hotel-container .hotel-header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; }
-  .hotel-container .meta {
-    display: flex;
-    align-items: flex-start;
-    flex: 1 1 60%;
-    flex-direction: column;
-    justify-content: space-around; }
-  .hotel-container .title {
-    font-size: 3rem;
+  flex-direction: row; }
+  .Hotel-image {
+    flex: 1 1 50%; }
+  .Hotel-content {
+    flex: 1 1 50%;
     font-family: "Baskerville", serif;
-    margin: 0 2rem 1rem 0; }
-  .hotel-container .address {
-    font-size: 1.8rem;
-    font-family: "Source Sans Pro", sans-serif; }
-  .hotel-container .address:before {
-    content: 'Address: ';
-    font-family: "Source Sans Pro", sans-serif; }
-  .hotel-container .phone {
-    font-size: 1.8rem;
-    font-family: "Source Sans Pro", sans-serif; }
-  .hotel-container .phone:before {
-    content: 'Phone: '; }
-  .hotel-container .desc {
-    margin: 2rem 2rem 0 0;
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 1.8rem; }
-  .hotel-container .addl-info {
-    margin: 0 2rem 0 0;
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 1.8rem; }
-  .hotel-container .image {
-    flex: 1 1 40%; }
-    .hotel-container .image img {
-      border-radius: 2rem; }
-    @media only screen and (max-width: 769px) {
-      .hotel-container .image {
-        display: none; } }
-  .hotel-container .rates-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; }
-  .hotel-container .rates-container > * {
-    margin: 1rem; }
-
-.rates {
-  border: 1px solid #E1E8ED;
-  border-collapse: collapse; }
-  .rates th, .rates td {
-    border: 1px solid #E1E8ED;
-    padding: .5rem; }
-  .rates th {
-    font-size: 1.8rem;
-    font-family: "Source Sans Pro", sans-serif;
-    background-color: #CCD6DD; }
-
-.hotels-list {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0; }
-
-.hotels-list > li {
-  border-bottom: 2px solid #E1E8ED; }
+    padding-left: 2rem; }
+    .Hotel-content--desc {
+      font-family: "Baskerville", serif; }
+    .Hotel-content--address {
+      margin-top: 2rem;
+      font-family: "Baskerville", serif; }
+    .Hotel-content--phone {
+      margin-top: 2rem;
+      font-family: "Baskerville", serif; }
 
 .hotels-list > li:last-child {
   border-bottom: 0; }

@@ -1,23 +1,25 @@
 {% extends "_layouts/default" %}
 {% block content %}
     {% cache globally unless getenv('APP_ENV') == 'development' %}
-        <section name="accommodations">
-            <h1>{{ entry.accommodationsTitle }}</h1>
-            {{ entry.accommodationsIntroCopy }}
-            <ul class="hotels-list">
-                {% for hotel in entry.hotelsList %}
-                    {% include "_partials/hotel" with {
-                        hotel: hotel
-                    } %}
-                {% endfor %}
-            </ul>
-        </section>
 
-        <section name="getting-around">
-            <h1>{{entry.gettingAroundTitle}}</h1>
-            <div class="getting-around">
-                {{entry.gettingAroundCopy}}
-            </div>
-        </section>
+        {% for content in entry.accommodationsContent.all %}
+            {% include '_partials/' ~ content.type.handle with {
+                content: content,
+            } only %}
+        {% endfor %}
+            
+        {% include 'hotels/accordion' with {
+            children: entry.hotelsList.all,
+        } only %}
+
+        {% for content in entry.travelContent.all %}
+            {% include '_partials/' ~ content.type.handle with {
+                content: content,
+            } only %}
+        {% endfor %}
+
+        {% include '_partials/accordion' with {
+            children: entry.travelAccordion.all,
+        } only %}
     {% endcache %}
 {% endblock %}
