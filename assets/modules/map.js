@@ -44,7 +44,6 @@ class Map
 
     getData(data) {
         data.forEach(place => {
-            // console.log(place);
             const request = {
                 query: place.address,
                 fields: ['photos', 'name', 'rating', 'formatted_address', 'opening_hours', 'geometry'],
@@ -56,9 +55,7 @@ class Map
     placesCallback(results, status) {
         GoogleMapsLoader.load(google => {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                console.log(results);
                 this.createMarkers(results);
-                
             }
         });
     }

@@ -30,6 +30,14 @@ class RestaurantService
             unset($params['cost']);
         }
 
+        if (key_exists('areas', $params)) {
+            if ($params['areas']) {
+                $areas = explode(',', $params['areas']);
+                $query = $query->relatedTo($areas);
+            }
+            unset($params['areas']);
+        }
+
         $query = Craft::configure($query, $params);
 
         return $query;

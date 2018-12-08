@@ -2,36 +2,42 @@
 {% extends isAjax ? '_layouts/ajax' : '_layouts/default' %}
 
 {% set costFilter = craft.app.request.getParam('cost') %}
+{% set areasFilter = craft.app.request.getParam('areas') %}
 {% set attractionQuery = craft.app.get('attractions').filter({
     cost: costFilter,
-    limit: 12,
+    areas: areasFilter,
     orderBy: 'title asc',
 }) %}
 
 {% set costs = craft.entries.section('costs').orderBy('title desc').all %}
-
+{% set areas = craft.entries.section('areas').orderBy('title asc').all %}
 {% paginate attractionQuery as pageInfo, attractions %}
 
 {% block content %}
     {% if isAjax %}
-        {% include 'things-to-do/explore/grid' with {
-            attractions: attractions,
-        } only %}
+        {% set showPlaces = [] %}
+        {% for place in restaurantQuery.all %}
+            {% if place.location is not empty %}
+                {% set showPlaces = showPlaces |merge([place.location]) %}
+            {% endif %}
+        {% endfor %}
+        {{ showPlaces | json_encode | raw }}
     {% else %}
-        <div class="Section-title">
-            Attractions
-        </div>
+        {% include '_partials/wysiwyg' with {
+            content : {
+                sectionHeading: 'Explore',
+                copy: ''
+            }
+        } only %}
+        
         {% include 'things-to-do/listingFilter' with {
             type: 'things-to-do/explore',
             costs: costs,
+            areas: areas,
         } only %}
-        <div class="ThingsToDo">
-            {% include 'things-to-do/explore/grid' with {
-                attractions: attractions,
-            } only %}
-        </div>
-        {% include 'things-to-do/paginate' with {
-            pageInfo: pageInfo,
+
+        {% include '_partials/map' with {
+            places: attractionQuery.all(),
         } only %}
     {% endif %}
 {% endblock %}

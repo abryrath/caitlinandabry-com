@@ -17,16 +17,23 @@ const filter = () => {
                 'X-Requested-With': 'XMLHttpRequest',
             }
         })
-        .then(res => res.text())
-        .then(content => {
-            const section = document.querySelector('.ThingsToDo');
-            section.innerHTML = '';
-            section.innerHTML = content;
-
+        .then(resp => resp.json())
+        .then(data => {
             if (window.map) {
-                
+                window.map.removeMarkers();
+                window.map.getData(data);
             }
         });
+        // .then(res => res.text())
+        // .then(content => {
+        //     const section = document.querySelector('.ThingsToDo');
+        //     section.innerHTML = '';
+        //     section.innerHTML = content;
+
+        //     if (window.map) {
+
+        //     }
+        // });
 
 };
 
@@ -101,6 +108,7 @@ export const onInit = () => {
             switch (filterType) {
                 case 'cuisine':
                 case 'cost':
+                case 'areas':
                     new DropdownFilter(filter, filterType);
                     break;
                 case 'epicentre':

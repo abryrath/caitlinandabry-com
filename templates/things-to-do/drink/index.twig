@@ -1,34 +1,38 @@
 {% set isAjax = craft.app.request.isAjax %}
 {% extends isAjax ? '_layouts/ajax' : '_layouts/default' %}
 
-{% set costFilter = craft.app.request.getParam('cost') %}
-{% set barQuery = craft.app.get('bars').filter({cost: costFilter, limit: 12, orderBy: 'title asc'}) %}
+{% set areasFilter = craft.app.request.getParam('areas') %}
+{% set barQuery = craft.app.get('bars').filter({
+    areas: areasFilter,
+    orderBy: 'title asc'
+}) %}
 
-{% set costs = craft.entries.section('costs').orderBy('title desc').all %}
+{% set areas = craft.entries.section('areas').orderBy('title asc').all %}
+{% block content %}
+    {% if isAjax %}
+        {% set showPlaces = [] %}
+        {% for place in barQuery.all %}
+            {% if place.location is not empty %}
+                {% set showPlaces = showPlaces |merge([place.location]) %}
+            {% endif %}
+        {% endfor %}
 
-{% paginate barQuery as pageInfo,
-bars %}
-
-    {% block content %}
-        {% if isAjax %}
-            {% include 'things-to-do/drink/grid' with {
-        bars: bars,
-    } only %}
-        {% else %}
-            <div class="Section-title">
-                Bars
-            </div>
-            {% include 'things-to-do/listingFilter' with {
+        {{ showPlaces | json_encode | raw }}
+    {% else %}
+        {% include '_partials/wysiwyg' with {
+            content : {
+                sectionHeading: 'Drink',
+                copy: ''
+            }
+        } only %}
+        
+        {% include 'things-to-do/listingFilter' with {
             type: 'things-to-do/drink',
-            costs: costs,
+            areas: areas,
         } only %}
-            <div class="ThingsToDo">
-                {% include 'things-to-do/drink/grid' with {
-                bars: bars,
-            } only %}
-            </div>
-            {% include 'things-to-do/paginate' with {
-            pageInfo: pageInfo,
+
+        {% include '_partials/map' with {
+            places: barQuery.all(),
         } only %}
-        {% endif %}
-    {% endblock %}
+    {% endif %}
+{% endblock %}
