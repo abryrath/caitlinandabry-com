@@ -4,11 +4,11 @@
         {% set hero = entry.pageHeroImage %}
         {% if hero | length %}
             <div class="Hero">
-                <img src="{{hero.one.getUrl}}"/>
+                <img src="{{ hero.one.getUrl }}"/>
             </div>
         {% endif %}
 
-        {% for content in entry.ourStoryContent %}
+        {% for content in entry.ourStoryContent.all %}
             {% include '_partials/' ~ content.type.handle with {
                 content: content
             } only %}

@@ -6,14 +6,29 @@
     font-family: $serif;
 
     &-title {
-        font-family: $serif;
-        font-size: $font-lg;
-        padding: 1rem;
-        background-image: linear-gradient(-90deg, $color-4, $color-6);
+        position: relative;
+        background-image: linear-gradient(-270deg, $color-4, $color-6);
+        //background-color: $color-4;
+        height: 2px;
+        margin-bottom: 5rem;
+        margin-top: 5rem;
+        left: 0;//-100px;
+
+        &>span {
+            font-family: $serif;
+            font-size: $font-lg;
+            // color: $color-4;
+            padding: 1rem;
+            background-color: $color-6;
+            position: relative;
+            top: -1.5rem;
+            left: 50px;
+        }
     }
 
     &-copy {
         font-family: $serif;
+        padding: 1rem;
     }
 
     &-list {

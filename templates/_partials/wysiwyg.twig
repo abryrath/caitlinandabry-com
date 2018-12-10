@@ -1,6 +1,6 @@
 <div class="Wysiwyg">
     {% if content.sectionHeading is not empty %}
-    <p class="Wysiwyg-title">{{ content.sectionHeading }}</p>
+        <div class="Wysiwyg-title"><span>{{ content.sectionHeading }}</span></div>
     {% endif %}
     {{ content.copy | replace({
         '<p>': '<p class="Wysiwyg-copy">',

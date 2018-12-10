@@ -1,15 +1,30 @@
 @import 'fonts';
 @import 'colors';
 
+nav {
+  @include mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
 .Menu {
   ul {
     list-style-type: none;
     padding: 0;
     font-family: $sans;
     font-size: $font-sm;
+    display: flex;
 
     @include mobile {
-
+      max-height: 0;
+      visibility: hidden;
+      opacity: 0;
+      flex-direction: column;
+      align-items: center;
+      transition: max-height, opacity 500ms ease-in-out;    
     }
 
     @include desktop {
@@ -24,11 +39,27 @@
       padding: 0 20px;
     }
   }
+
+  // Mobile menu active
+  &.active ul {
+    @include mobile {
+      max-height: 800px;
+      visibility: visible;
+      opacity: 1;   
+    }
+  }
+
   &-item {
     text-transform: uppercase;
 
     @include mobile {
-
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid $color-4;
+      &:last-child {
+        border-bottom: 0;
+      }
     }
 
     @include desktop {
@@ -39,17 +70,41 @@
     }
 
     &-subMenu {
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0s, opacity 300ms linear;
+      @include desktop {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 300ms linear;
+      }
+      @include mobile {
+        &>div { 
+          padding: .5rem;
+        }
+      }
+
+      &>span {
+        cursor: pointer;
+      }
     }
     
     &:hover &-subMenu {
-      visibility: visible;
-      opacity: 1;
+      @include desktop {
+        visibility: visible;
+        opacity: 1; 
+      }
     }
-    a {
+    &>a {
       color: $color-2;
+      @include mobile {
+        color: $color-1;
+      }
+    }
+  }
+  &-mobile-hamburger {
+    display: none;
+    @include mobile {
+      display: block;
+      cursor: pointer;
+      padding: 1rem;
     }
   }
 }

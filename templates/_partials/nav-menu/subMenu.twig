@@ -1,7 +1,7 @@
 <li class="Menu-item" data-nav-parent="{{ link.id }}">
-    <a>
+    <span>
         {{ link.displayText }}
-    </a>
+    </span>
     <div class="Menu-item-subMenu" data-nav-child="{{ link.id }}">
         {% for child in link.internalLink.all %}
             <div>
