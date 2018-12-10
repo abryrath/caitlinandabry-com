@@ -1,10 +1,8 @@
-{% set imgUrl = '' %}
-{% if member.weddingPartyMemberPicture.first|length %}
-    {%  set imgUrl = member.weddingPartyMemberPicture.first.url %}
-{%endif%}
-<li class="wedding-party-member">
-    <img class="wedding-party-headshot" src="{{imgUrl}}" alt="{{member.weddingPartyMemberName}}">
-    <span class="name">{{member.weddingPartyMemberName}}</span>
-    <span class="position">{{member.weddingPartyMemberPosition}}</span>
-    <span class="desc">{{member.weddingPartyMemberRelation}}</span>
-</li>
+<div class="WeddingParty-card">
+    <div class="Image">
+        <img src="{{ member.weddingPartyMemberPicture.one.getUrl('headshot') }}" alt="{{ member.weddingPartyMemberName }}">
+    </div>
+    <div class="WeddingParty-card--name">{{member.weddingPartyMemberName}}</div>
+    <div class="WeddingParty-card--position">{{member.weddingPartyMemberPosition}}</div>
+    <div class="WeddingParty-card--relation">{{member.weddingPartyMemberRelation}}</div>
+</div>

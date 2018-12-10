@@ -1,0 +1,30 @@
+.Registry {
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+
+    @include desktop {
+        flex-direction: row;
+    }
+
+    @include mobile {
+        flex-direction: column;
+    }
+
+    &-card {
+        border: 1px solid $color-3;
+
+        &--content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &>span {
+                color: $color-2;
+            }
+        }
+    }
+}

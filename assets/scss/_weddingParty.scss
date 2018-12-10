@@ -1,36 +1,52 @@
 @import 'fonts';
 
-.wedding-party-member {
+.WeddingParty {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  font-family: $sans;
+  justify-content: space-between;
 
-  & > .name {
-    font-size: $font-md;
+  @include desktop {
+    flex-direction: row;
   }
 
-  & > .position {}
-
-  & > .desc {
-    font-style: italic;
+  @include mobile {
+    flex-direction: column;
   }
-}
 
-.wedding-party-headshot {
-  max-width: 20rem;
-} 
-
-.wedding-party-columns {
-  display: flex;
-  flex-direction: row;
-  
-  & > div {
-    width: 50%;
-    padding: 10px;
+  &-col {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
-  
-  & > div:first-child {
-    margin-right: 20px;
+
+  &-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+
+    @include desktop {
+      max-width: 80%;
+      min-width: 80%;
+    }
+
+    &--name {
+      font-family: $serif;
+      font-size: $font-lg;
+    }
+
+    &--position {
+      font-family: $serif;
+      font-size: $font-md;
+      font-style: italic;
+    }
+
+    &--relation {
+      font-family: serif;
+      font-size: $font-sm;
+    }
   }
 }

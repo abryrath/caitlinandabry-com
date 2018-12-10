@@ -4,6 +4,7 @@ namespace abryrath\wedding;
 
 use Craft;
 use yii\base\Module;
+use abryrath\wedding\twigextensions\AppTwigExtension;
 
 class App extends Module
 {
@@ -22,5 +23,6 @@ class App extends Module
     {
         parent::init();
         self::$instance = $this;
+        Craft::$app->view->registerTwigExtension(new AppTwigExtension());
     }
 }

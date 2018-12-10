@@ -80,10 +80,6 @@ nav {
           padding: .5rem;
         }
       }
-
-      &>span {
-        cursor: pointer;
-      }
     }
     
     &:hover &-subMenu {
@@ -92,6 +88,12 @@ nav {
         opacity: 1; 
       }
     }
+    
+    &>span {
+      cursor: pointer;
+      color: $color-2;
+    }
+    
     &>a, &-subMenu>div>a {
       color: $color-2;
       @include mobile {
@@ -108,119 +110,3 @@ nav {
     }
   }
 }
-
-// .nav {
-//   list-style-type: none;
-//   padding: 0;
-//   font-family: $sans;
-
-//   @include mobile {
-//     display: none;
-//     align-items: center;
-//     flex-direction: column;
-//   }
-
-//   @include desktop {
-//     display: flex;
-//     flex-direction: row;
-//     border-top: 2px solid #eee;
-//     margin: 10px 0 10px 0;
-//     font-size: $font-sm;
-//     vertical-align: middle;
-//     justify-content: center;
-//     align-items: start;
-//     position: relative;
-//     top: -1rem;
-//   }
-
-//   li {
-//     text-transform: uppercase;
-//     @include desktop {
-//       max-width: 180px;
-//       display: inline-block;
-//       padding: 0 20px 0 20px;
-//     }
-//     @include mobile {
-//       padding: 1rem;
-//       border-bottom: 1px solid $sep-color;
-//     }
-//   }
-//   li:last-child {
-//     border-bottom: 0;
-//   }
-// }
-
-// .nav.mobile-active {
-//   @include mobile {
-//     display: flex;
-//   }
-// }
-
-// .Menu-wrapper {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
-
-// .Menu-item {
-//   background-color: $nav-bg;
-//   @include desktop {
-//     margin: -1rem auto 0 auto;
-//     border-right: 1px solid $nav-item-border;
-//     text-align: center;
-//   }
-//   a {
-//     color: $nav-link;
-//   }
-// }
-
-// .Menu-item:last-child {
-//   border-right: none;
-// }
-
-// .Menu-item-active {
-//   color: #000;
-//   text-decoration: none;
-//   font-weight: bold;
-
-//   a {
-//     color: $nav-link-active;
-//     @include desktop {
-//       border-bottom: 2px solid $nav-item-border;
-//     }
-//   }
-// }
-
-// /** Nested child submenu **/
-// .Menu-subMenu {
-//   display: none;
-//   position: absolute;
-//   transition: display 300ms;
-// }
-
-// .Menu-subMenu {
-//   display: block;
-// }
-
-// .submenu-active {
-//   display: block;
-//   background-color: $submenu-bg;
-//   padding: 1rem;
-  
-// }
-
-// .submenu-list {
-//   list-style: none;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// }
-
-// .mobile-menu-button {
-//   @include mobile {
-//     display: block;
-//   }
-//   @include desktop {
-//     display: none;
-//   }
-// }

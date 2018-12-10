@@ -4,15 +4,23 @@
         {% set hero = entry.pageHeroImage %}
         {% if hero | length %}
             <div class="Hero">
-                <img src="{{hero.one.getUrl}}"/>
+                <img src="{{ hero.one.getUrl }}"/>
             </div>
         {% endif %}
-        {% for link in entry.links.all %}
-            <li>
-                <a href="{{link.linkUrl}}">{{link.linkTitle}}</a>
-                {% if link.additionalInfo | length %}
-                    - {{ link.additionalInfo }}
-                {% endif %}
-        {% endfor %}
+
+        {% include '_partials/wysiwyg' with {
+            content: {
+                sectionHeading: 'Registry',
+                copy: '',
+            },
+        } only %}
+
+        <div class="Registry">
+            {% for link in entry.links.all %}
+                {% include 'registry/card' with {
+                    content: link,
+                } only %}
+            {% endfor %}
+        </div>
     {% endcache %}
 {% endblock %}

@@ -2,30 +2,31 @@
 
 {% block content %}
     {% cache globally unless getenv('APP_ENV') == 'development' %}
-        <div class="content">
-            <h1>{{ entry.headline }}</h1>
-            {# <h1>Wedding Party</h1> #}
+    <div class="content">
+        {% include '_partials/wysiwyg' with {
+            content : {
+                sectionHeading: entry.headline,
+                copy: ''
+            }
+        }
+        only %}
 
-            <div class="wedding-party-columns">
-                <div>
-                    <ul id="bridesmaids">
-                        {% for bridesmaid in entry.bridesmaidList %}
-                            {% include 'wedding-party/person' with {
+        <div class="WeddingParty">
+            <div class="WeddingParty-col">
+                {% for bridesmaid in entry.bridesmaidList %}
+                    {% include 'wedding-party/person' with {
                                 member: bridesmaid
                             } only %}
-                        {%endfor%}
-                    </ul>
-                </div>
-                <div>
-                    <ul id="groomsmen">
-                        {% for groomsman in entry.groomsmenList %}
-                            {% include 'wedding-party/person' with {
+                {% endfor %}
+            </div>
+            <div class="WeddingParty-col">
+                {% for groomsman in entry.groomsmenList %}
+                    {% include 'wedding-party/person' with {
                                 member: groomsman
                             } only %}
-                        {% endfor %}
-                    </ul>
-                </div>
+                {% endfor %}
             </div>
         </div>
+    </div>
     {% endcache %}
 {% endblock %}
