@@ -92,10 +92,10 @@ nav {
         opacity: 1; 
       }
     }
-    &>a {
+    &>a, &-subMenu>div>a {
       color: $color-2;
       @include mobile {
-        color: $color-1;
+        color: $color-2;
       }
     }
   }

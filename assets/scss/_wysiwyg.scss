@@ -8,21 +8,29 @@
     &-title {
         position: relative;
         background-image: linear-gradient(-270deg, $color-4, $color-6);
-        //background-color: $color-4;
         height: 2px;
-        margin-bottom: 5rem;
-        margin-top: 5rem;
-        left: 0;//-100px;
+
+        @include desktop {
+            margin-bottom: 5rem;
+            margin-top: 5rem;
+            left: 0;
+        }
 
         &>span {
             font-family: $serif;
             font-size: $font-lg;
-            // color: $color-4;
             padding: 1rem;
             background-color: $color-6;
             position: relative;
             top: -1.5rem;
-            left: 50px;
+            
+            @include desktop {
+                left: 50px;
+            }
+
+            @include mobile {
+                font-size: $font-lg;
+            }
         }
     }
 
