@@ -19,13 +19,32 @@ class Photos {
         this.infoText = document.querySelector('[data-info]');
         this.updateInfoText();
 
+
+        window.addEventListener('keydown', e => {
+            console.log(e.keyCode);
+            if (this.open) {
+                switch (e.keyCode) {
+                    case 27:
+                        this.toggleModal();
+                        break;
+                    case 37:
+                        this.prev();
+                        break;
+                    case 39:
+                        this.next();
+                        break;
+                    default:
+                        console.log('not registered: ', e.keycode);
+                }
+            }
+        })
     }
 
-    toggleModal(e) {
+    toggleModal(e = false) {
         console.log('toggle');
         this.open = !this.open;
 
-        if (e.target.dataset.photoIndex) {
+        if (e && e.target.dataset.photoIndex) {
             this.setActivePhoto(e.target.dataset.photoIndex);
             this.updateInfoText();
         }

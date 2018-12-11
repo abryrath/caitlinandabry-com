@@ -1,17 +1,37 @@
 .Photos {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
     flex-wrap: wrap;
 
+    @include mobile {
+        justify-content: center;
+        margin-top: 5rem;
+    }
+
     &-card {
-        flex: 1 1 auto;
-        margin: 1rem;
+        max-width: 140px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 5px;
         cursor: pointer;
+        transition: max-width, margin 300ms linear;
+
+        @include mobile {
+            max-width: unset;
+        }
 
         &>* {
             pointer-events: none;
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            max-width: 150px;
+            margin: 0;
         }
     }
 
