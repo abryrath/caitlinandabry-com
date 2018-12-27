@@ -4,8 +4,63 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56e5b86c381f16a47d49ee2b928ad499",
+    "content-hash": "14601237c422980b9dadbadd93c2ee97",
     "packages": [
+        {
+            "name": "abryrath/craft-sync-db",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/abryrath/craft-syncdb.git",
+                "reference": "d3c95a8ddd2eb21a26df9c721d1728535058aef2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/abryrath/craft-syncdb/zipball/d3c95a8ddd2eb21a26df9c721d1728535058aef2",
+                "reference": "d3c95a8ddd2eb21a26df9c721d1728535058aef2",
+                "shasum": ""
+            },
+            "require": {
+                "abryrath/syncdb": "dev-master",
+                "craftcms/cms": "^3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "craft-sync-db",
+                "handle": "craft-sync-db",
+                "hasCpSettings": true,
+                "hasCpSection": true,
+                "changelogUrl": "???",
+                "components": {
+                    "sync": "abryrath\\craftsyncdb\\services\\Sync"
+                },
+                "class": "abryrath\\craftsyncdb\\Craftsyncdb"
+            },
+            "autoload": {
+                "psr-4": {
+                    "abryrath\\craftsyncdb\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abry Rath<abryrath@gmail.com>",
+                    "homepage": "https://github.com/abryrath"
+                }
+            ],
+            "description": "Craft 3 plugin to sync database across environments",
+            "keywords": [
+                "Craft",
+                "cms",
+                "craft-plugin",
+                "craft-sync-db",
+                "craftcms"
+            ],
+            "time": "2018-12-19T01:57:51+00:00"
+        },
         {
             "name": "abryrath/syncdb",
             "version": "dev-master",
@@ -3417,9 +3472,9 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "abryrath/syncdb": 20
+        "abryrath/craft-sync-db": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

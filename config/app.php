@@ -19,7 +19,6 @@
 
 return [
     'modules' => [
-        'abryrath' => \abryrath\databasehelper\DatabaseHelperModule::class,
         'wedding' => \abryrath\wedding\App::class,
     ],
     'components' => [

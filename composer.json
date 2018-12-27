@@ -9,8 +9,9 @@
     "verbb/super-table": "2.0.14",
     "verbb/field-manager": "2.0.4",
     "ether/simplemap": "3.3.4",
-    "abryrath/syncdb": "dev-master"
+    "abryrath/craft-sync-db": "dev-master"
   },
+  "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
         "abryrath\\databasehelper\\": "modules/databasehelper",
