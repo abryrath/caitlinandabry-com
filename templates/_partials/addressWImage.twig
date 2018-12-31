@@ -1,0 +1,15 @@
+<div class="AddressWImage">
+    <div class="AddressWImage-img Image">
+        <img src="{{ content.image.one.url }}">
+    </div>
+    <div class="AddressWImage-content">
+        <div class="text">
+            <div class="title">{{ content.addressTitle }}</div>
+            <div class="address">
+                <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{ content.address | url_encode }}">
+                    {{ content.address | nl2br }}
+                </a>      
+            </div>
+        </div>
+    </div>
+</div>

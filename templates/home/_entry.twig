@@ -8,9 +8,10 @@
                 <img src="{{ hero.one.getUrl }}"/>
             </div>
         {% endif %}
-
-        {% include '_partials/wysiwyg' with {
-            content: entry.wysiwyg,
-        } only %}
+        <div class="home">
+            {% include '_partials/wysiwyg' with {
+                content: entry.wysiwyg,
+            } only %}
+        </div>
     {% endcache %}
 {% endblock %}

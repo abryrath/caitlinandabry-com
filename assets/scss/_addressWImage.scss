@@ -1,0 +1,44 @@
+.AddressWImage {
+    width: 100%;
+    display: flex;
+    @include desktop {
+        flex-direction: row;
+    }
+    @include mobile {
+        flex-direction: column;
+    }
+    &-img {
+        @include desktop {
+            max-width: 66%;
+            //overflow: hidden;
+        }
+    }
+
+    &-content {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5rem;
+
+        @include desktop {
+            max-width: 34%;
+            width: 100%;
+        }
+
+        &>.text {
+            background-color: white;
+            //border: 1px solid black;
+            padding: 1rem;
+
+            &>.title {
+                font-size: $font-lg;
+            }
+    
+            &>.address {
+                font-style: italic;
+            }
+        }
+    }
+}
