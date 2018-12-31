@@ -5,6 +5,10 @@
   align-items: center;
   justify-content: space-between;
 
+  &-image {
+    max-width: 50%;
+  }
+
   @include desktop {
     flex-direction: row;
   }
@@ -35,7 +39,7 @@
 
     &--name {
       font-family: $serif;
-      font-size: $font-lg;
+      font-size: $font-md;
     }
 
     &--position {
