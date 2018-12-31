@@ -234,6 +234,9 @@ section[name="header"] {
       margin-left: 2rem;
       margin-bottom: 1rem; }
 
+.home > .Wysiwyg > h1 {
+  color: #55ACEE; }
+
 .Image > img {
   max-width: 100%; }
 
@@ -293,22 +296,52 @@ td.type {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(-90deg, #E1E8ED, #CCD6DD);
   margin-bottom: 1rem; }
   .Address-content {
     max-width: 50%;
     background-color: #FFFFFF;
-    padding: 1rem;
+    padding: 5rem;
     margin: 1rem;
     font-style: italic;
     font-family: "Lora", serif;
     border: 1px solid #292F33; }
     @media only screen and (min-width: 770px) {
       .Address-content {
-        font-size: 3rem; } }
+        font-size: 1.8rem; } }
     @media only screen and (max-width: 769px) {
       .Address-content {
         font-size: 1.8rem; } }
+
+.AddressWImage {
+  width: 100%;
+  display: flex; }
+  @media only screen and (min-width: 770px) {
+    .AddressWImage {
+      flex-direction: row; } }
+  @media only screen and (max-width: 769px) {
+    .AddressWImage {
+      flex-direction: column; } }
+  @media only screen and (min-width: 770px) {
+    .AddressWImage-img {
+      max-width: 66%; } }
+  .AddressWImage-content {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem; }
+    @media only screen and (min-width: 770px) {
+      .AddressWImage-content {
+        max-width: 34%;
+        width: 100%; } }
+    .AddressWImage-content > .text {
+      background-color: white;
+      padding: 1rem; }
+      .AddressWImage-content > .text > .title {
+        font-size: 3rem; }
+      .AddressWImage-content > .text > .address {
+        font-style: italic; }
 
 .Map {
   width: 100%;
@@ -472,7 +505,7 @@ td.type {
     width: 100%; }
     @media only screen and (min-width: 770px) {
       .Hero > img {
-        width: 800px; } }
+        max-width: 800px; } }
 
 .WeddingParty {
   display: flex;
